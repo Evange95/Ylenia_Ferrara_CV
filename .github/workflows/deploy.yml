@@ -1,0 +1,86 @@
+name: Build & Deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # ── Build LaTeX PDFs ──────────────────────────────────────────────
+      - name: Install TeX Live (XeLaTeX + fonts)
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends \
+            texlive-xetex \
+            texlive-fonts-recommended \
+            texlive-fonts-extra \
+            texlive-latex-extra \
+            fonts-roboto
+
+      - name: Build English CV
+        working-directory: latex
+        run: |
+          xelatex -interaction=nonstopmode cv.tex
+          xelatex -interaction=nonstopmode cv.tex
+
+      - name: Build Italian CV
+        working-directory: latex
+        run: |
+          xelatex -interaction=nonstopmode cv_it.tex
+          xelatex -interaction=nonstopmode cv_it.tex
+
+      - name: Copy PDFs to website public/
+        run: |
+          cp latex/cv.pdf    website/public/cv.pdf
+          cp latex/cv_it.pdf website/public/cv_it.pdf
+
+      # ── Build Astro site ──────────────────────────────────────────────
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build website
+        working-directory: website
+        env:
+          BASE_PATH: "/${{ github.event.repository.name }}"
+          SITE_URL: "https://${{ github.repository_owner }}.github.io"
+        run: pnpm build
+
+      # ── Deploy to GitHub Pages ────────────────────────────────────────
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: website/dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

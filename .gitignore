@@ -1,0 +1,21 @@
+# LaTeX build artifacts
+latex/*.aux
+latex/*.log
+latex/*.out
+latex/*.synctex.gz
+latex/*.pdf
+
+# Website build output
+website/dist/
+website/.astro/
+
+# PDFs in public/ are built by CI, not committed
+website/public/cv.pdf
+website/public/cv_it.pdf
+
+# Node
+node_modules/
+website/node_modules/
+
+# Misc
+.DS_Store

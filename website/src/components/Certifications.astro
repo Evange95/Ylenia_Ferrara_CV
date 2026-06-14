@@ -1,0 +1,185 @@
+---
+import { t, type Lang } from '../i18n/index.ts';
+
+interface Props { lang: Lang; }
+const { lang } = Astro.props;
+const tr = t(lang);
+
+const years = [
+  {
+    year: '2025',
+    certs: [
+      { issuer: 'LinkedIn', name: 'Marketing Insider Badge' },
+      { issuer: 'LinkedIn', name: 'Marketing Strategy' },
+      { issuer: 'LinkedIn', name: 'Content and Creative Design' },
+    ],
+  },
+  {
+    year: '2024',
+    certs: [
+      { issuer: 'LinkedIn', name: 'Introduction to Social Media Marketing' },
+    ],
+  },
+  {
+    year: '2023',
+    certs: [
+      { issuer: 'Google / Coursera', name: 'Foundations of Project Management' },
+      { issuer: 'Google / Coursera', name: 'Agile Project Management' },
+      { issuer: 'Google / Coursera', name: 'Project Initiation' },
+      { issuer: 'Google / Coursera', name: 'Project Planning' },
+      { issuer: 'Google / Coursera', name: 'Running the Project' },
+      { issuer: 'Google / Coursera', name: 'Applying PM in the Real World' },
+      { issuer: 'Google', name: 'Google Analytics (GA4, GTM, GA360)' },
+      { issuer: 'Asana', name: 'Asana' },
+      { issuer: 'Google', name: 'Google Digital Training' },
+      { issuer: 'Canva', name: 'Canva' },
+      { issuer: 'Figma', name: 'Figma' },
+    ],
+  },
+  {
+    year: '2022',
+    certs: [
+      { issuer: 'LinkedIn', name: 'Social Media Marketing: Strategy and Optimization' },
+      { issuer: 'LinkedIn', name: 'Content Creation: Strategy and Tools' },
+      { issuer: 'Microsoft', name: 'Excel — VLOOKUP and XLOOKUP' },
+      { issuer: 'Various', name: 'Sustainability Contest' },
+    ],
+  },
+  {
+    year: '2021',
+    certs: [
+      { issuer: 'LVMH', name: 'LVMH Certification' },
+    ],
+  },
+  {
+    year: '2019',
+    certs: [
+      { issuer: 'Oxford International', name: 'English Language — Student Progress Report' },
+    ],
+  },
+];
+
+const issuerColor: Record<string, string> = {
+  'LinkedIn':         '#0A66C2',
+  'Google':           '#4285F4',
+  'Google / Coursera':'#4285F4',
+  'Asana':            '#F06A6A',
+  'Canva':            '#00C4CC',
+  'Figma':            '#A259FF',
+  'Microsoft':        '#737373',
+  'LVMH':             '#C9953A',
+  'Oxford International': '#8B1A1A',
+  'Various':          '#7B6FA0',
+};
+---
+<section id="certifications" class="section">
+  <div class="container">
+    <p class="section-label">{tr.certifications.label}</p>
+    <h2 class="section-title">{tr.certifications.title}</h2>
+
+    <div class="cert-timeline">
+      {years.map((group, gi) => (
+        <div class="cert-year-group fade-in" style={`transition-delay:${gi * 0.08}s`}>
+          <div class="year-label">{group.year}</div>
+          <div class="year-certs">
+            {group.certs.map(c => (
+              <div class="cert-pill">
+                <span class="cert-dot" style={`background:${issuerColor[c.issuer] ?? 'var(--violet)'}`}></span>
+                <span class="cert-name">{c.name}</span>
+                <span class="cert-issuer-label">{c.issuer}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+#certifications { background: var(--violet-pale); }
+
+.cert-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.cert-year-group {
+  display: grid;
+  grid-template-columns: 4rem 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.year-label {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--violet);
+  padding-top: 0.35rem;
+  text-align: right;
+  position: relative;
+}
+.year-label::after {
+  content: '';
+  position: absolute;
+  right: -1rem;
+  top: 0.6rem;
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--violet);
+  border: 2px solid var(--white);
+  box-shadow: 0 0 0 2px var(--violet);
+}
+
+.year-certs {
+  border-left: 2px solid var(--border);
+  padding-left: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.cert-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 2rem;
+  padding: 0.35rem 0.85rem;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.cert-pill:hover {
+  box-shadow: var(--shadow);
+  transform: translateY(-1px);
+}
+
+.cert-dot {
+  display: block;
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.cert-name {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--dark);
+}
+
+.cert-issuer-label {
+  font-size: 0.72rem;
+  color: var(--muted);
+  border-left: 1px solid var(--border);
+  padding-left: 0.45rem;
+  margin-left: 0.1rem;
+}
+
+@media (max-width: 600px) {
+  .cert-year-group { grid-template-columns: 3rem 1fr; gap: 1rem; }
+  .year-certs { padding-left: 1rem; }
+}
+</style>

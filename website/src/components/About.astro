@@ -1,0 +1,105 @@
+---
+import { t, type Lang } from '../i18n/index.ts';
+
+interface Props { lang: Lang; }
+const { lang } = Astro.props;
+const tr = t(lang);
+const ab = tr.about;
+---
+<section id="about" class="section">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-left fade-in">
+        <p class="section-label">{ab.label}</p>
+        <h2 class="section-title" style="margin-bottom:1.5rem" set:html={ab.titleHtml}></h2>
+        {ab.bio.map(para => <p class="about-bio">{para}</p>)}
+        <p class="about-location">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          {ab.location}
+        </p>
+      </div>
+
+      <div class="about-right">
+        {ab.metrics.map((m, i) => (
+          <div class="metric-card fade-in" style={`transition-delay:${(i + 1) * 0.1}s`}>
+            <span class="metric-number">{m.number}</span>
+            <span class="metric-label">{m.label}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+#about { background: var(--violet-pale); }
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.about-bio {
+  color: var(--body);
+  font-size: 1.02rem;
+  line-height: 1.75;
+  margin-top: 1rem;
+}
+.about-bio:first-of-type { margin-top: 0; }
+
+.about-location {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 1.5rem;
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--muted);
+}
+.about-location svg { flex-shrink: 0; }
+
+.about-right {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.metric-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s, box-shadow 0.2s, opacity 0.6s, transform 0.6s;
+}
+.metric-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow);
+}
+
+.metric-number {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--violet);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.metric-label {
+  display: block;
+  font-size: 0.82rem;
+  color: var(--muted);
+  line-height: 1.4;
+}
+
+@media (max-width: 900px) {
+  .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+}
+@media (max-width: 480px) {
+  .about-right { grid-template-columns: 1fr; }
+}
+</style>

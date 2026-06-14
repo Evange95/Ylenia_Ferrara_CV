@@ -1,0 +1,145 @@
+---
+import { t, type Lang } from '../i18n/index.ts';
+
+interface Props { lang: Lang; }
+const { lang } = Astro.props;
+const tr = t(lang);
+
+const articles = [
+  {
+    title: 'Dreams are made to come true',
+    preview: 'Since childhood, my imagination has been fueled by dreams of spreading my wings over the Red Land and navigating the skies above the Great…',
+    url: 'https://medium.com/@yleniaferrara/dreams-are-made-to-come-true-5d0e4f6fc671',
+  },
+  {
+    title: 'Pursuing dreamOZ — Practical advice',
+    preview: 'A practical guide for chasing ambitious dreams across continents — lessons learned along the way.',
+    url: 'https://medium.com/@yleniaferrara/pursuing-dreamoz-10abef2769fa',
+  },
+  {
+    title: 'First OZ week Perth',
+    preview: 'First impressions, first steps, and the beginning of a new chapter in Australia.',
+    url: 'https://medium.com/@yleniaferrara/first-oz-week-a2d7a7410868',
+  },
+  {
+    title: 'New start',
+    preview: "There's almost a month left until the end of the year, and I find myself surrounded by books that never started, and the melodic notes of…",
+    url: 'https://medium.com/@yleniaferrara/theres-almost-a-month-left-until-the-end-of-the-year-and-i-find-myself-surrounded-by-books-that-46146533c3ee',
+  },
+  {
+    title: 'Echoes of OZ',
+    preview: 'The repetition of a sound caused by reflection of memories.',
+    url: 'https://medium.com/@yleniaferrara/echoes-of-oz-47749b888487',
+  },
+];
+---
+<section id="writing" class="section">
+  <div class="container">
+    <p class="section-label">{tr.writing.label}</p>
+    <h2 class="section-title">{tr.writing.title}</h2>
+    <p class="writing-intro">Beyond professional work, I write about travel, self-discovery, and life abroad.</p>
+
+    <div class="articles-grid">
+      {articles.map((a, i) => (
+        <a
+          class="article-card card fade-in"
+          href={a.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          style={`transition-delay:${i * 0.1}s`}
+        >
+          <div class="article-number">0{i + 1}</div>
+          <h3 class="article-title">{a.title}</h3>
+          <p class="article-preview">{a.preview}</p>
+          <span class="article-link">
+            Read on Medium
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+          </span>
+        </a>
+      ))}
+    </div>
+
+    <div class="writing-cta fade-in">
+      <a href="https://medium.com/@yleniaferrara" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M13.54 12a6.8 6.8 0 0 1-6.77 6.82A6.8 6.8 0 0 1 0 12a6.8 6.8 0 0 1 6.77-6.82A6.8 6.8 0 0 1 13.54 12zm7.42 0c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg>
+        View all on Medium
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+#writing { background: var(--surface); }
+
+.writing-intro {
+  color: var(--muted);
+  font-size: 1rem;
+  margin-bottom: 2.5rem;
+  margin-top: -1.5rem;
+}
+
+.articles-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  margin-bottom: 2.5rem;
+}
+
+.article-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.article-number {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--violet-light);
+  line-height: 1;
+}
+
+.article-title {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--dark);
+  line-height: 1.3;
+  transition: color 0.2s;
+}
+.article-card:hover .article-title { color: var(--violet); }
+
+.article-preview {
+  font-size: 0.85rem;
+  color: var(--muted);
+  line-height: 1.55;
+  flex: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.article-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--violet);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-top: auto;
+}
+
+.writing-cta { text-align: center; }
+
+@media (max-width: 900px) {
+  .articles-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 560px) {
+  .articles-grid { grid-template-columns: 1fr; }
+}
+</style>

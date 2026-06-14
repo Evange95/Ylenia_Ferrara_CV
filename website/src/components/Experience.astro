@@ -1,0 +1,176 @@
+---
+import { t, type Lang } from '../i18n/index.ts';
+
+interface Props { lang: Lang; }
+const { lang } = Astro.props;
+const tr = t(lang);
+const ex = tr.experience;
+---
+<section id="experience" class="section">
+  <div class="container">
+    <p class="section-label">{ex.label}</p>
+    <h2 class="section-title">{ex.title}</h2>
+
+    <div class="timeline">
+      {ex.jobs.map((job, i) => (
+        <div class={`timeline-item fade-in ${job.current ? 'current' : ''}`} style={`transition-delay:${i * 0.12}s`}>
+          <div class="timeline-marker">
+            <div class="marker-dot"></div>
+          </div>
+          <div class="timeline-content card">
+            {job.current && <span class="current-badge">{ex.current}</span>}
+            <div class="job-header">
+              <h3 class="job-title">{job.title}</h3>
+              <span class="job-period">{job.period}</span>
+            </div>
+            <p class="job-meta">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
+              {job.company}
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              {job.location}
+            </p>
+            <ul class="job-items">
+              {job.items.map(item => (
+                <li set:html={item} />
+              ))}
+            </ul>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+.timeline {
+  position: relative;
+  padding-left: 2rem;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 0.5rem;
+  top: 1rem;
+  bottom: 1rem;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--violet), var(--violet-light));
+  border-radius: 2px;
+}
+
+.timeline-item {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+.timeline-item:last-child { margin-bottom: 0; }
+
+.timeline-marker {
+  position: absolute;
+  left: -1.65rem;
+  top: 1.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.marker-dot {
+  width: 14px; height: 14px;
+  border-radius: 50%;
+  background: var(--white);
+  border: 3px solid var(--violet);
+  box-shadow: 0 0 0 3px var(--violet-pale);
+  transition: background 0.2s;
+}
+.current .marker-dot {
+  background: var(--violet);
+}
+
+.timeline-content {
+  grid-column: 1 / -1;
+  position: relative;
+}
+
+.current-badge {
+  position: absolute;
+  top: 1.2rem; right: 1.2rem;
+  background: var(--violet);
+  color: var(--white);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.65rem;
+  border-radius: 1rem;
+}
+
+.current .timeline-content {
+  border-color: var(--violet);
+  box-shadow: 0 0 0 1px var(--violet), var(--shadow);
+}
+
+.job-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.5rem;
+}
+
+.job-title {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--dark);
+}
+
+.job-period {
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--violet);
+  background: var(--violet-light);
+  padding: 0.2rem 0.65rem;
+  border-radius: 1rem;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.job-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-bottom: 1rem;
+}
+.job-meta svg { flex-shrink: 0; }
+
+.job-items {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.job-items li {
+  font-size: 0.92rem;
+  color: var(--body);
+  padding-left: 1.1rem;
+  position: relative;
+  line-height: 1.6;
+}
+.job-items li::before {
+  content: '›';
+  position: absolute;
+  left: 0;
+  color: var(--violet);
+  font-weight: 700;
+}
+.job-items li :global(strong) {
+  font-weight: 600;
+  color: var(--dark);
+}
+</style>

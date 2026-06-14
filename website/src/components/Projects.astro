@@ -1,0 +1,185 @@
+---
+import { t, type Lang } from '../i18n/index.ts';
+
+interface Props { lang: Lang; }
+const { lang } = Astro.props;
+const tr = t(lang);
+
+const projects = [
+  {
+    company: 'Dior',
+    course: 'Fashion Communication',
+    description: 'Analyzed the current Zeitgeist to formulate thoughtful suggestions for Dior\'s upcoming collection, covering fashion cycle analysis, market segmentation, and communication strategy.',
+    tags: ['Fashion', 'Communication Strategy', 'Market Segmentation'],
+  },
+  {
+    company: 'Bosch',
+    course: 'Strategic Communication',
+    description: 'Conducted an extensive analysis of the employer branding landscape in the tech industry, comparing competitive strategies and identifying best practices.',
+    tags: ['Employer Branding', 'Tech Industry', 'Strategic Analysis'],
+  },
+  {
+    company: 'ENEL',
+    course: 'Digital Communication',
+    description: 'Formulated a comprehensive set of innovative ideas and suggestions to craft an impactful communication strategy promoting green energy adoption.',
+    tags: ['Digital Strategy', 'Green Energy', 'Sustainability'],
+  },
+  {
+    company: 'Prime Minister – GOGROUP',
+    course: 'Brand Identity',
+    description: 'Developed a cultural positioning strategy and crafted compelling social media content for a political organization supporting young women.',
+    tags: ['Brand Identity', 'Social Media', 'Cultural Positioning'],
+  },
+  {
+    company: "Tod's",
+    course: 'Strategy & Management',
+    description: "Performed a comprehensive evaluation of Tod's corporate performance and formulated an astute growth strategy aligned with brand heritage.",
+    tags: ['Corporate Strategy', 'Luxury Brand', 'Growth Planning'],
+  },
+  {
+    company: 'Alexa (Amazon)',
+    course: 'Ethnography & Netnography',
+    description: 'Investigated how Italian Generation X engages and interacts with Alexa, using digital ethnographic methods to uncover behavioral patterns.',
+    tags: ['Netnography', 'Consumer Behavior', 'Voice Technology'],
+  },
+  {
+    company: 'COPLACE App',
+    course: 'Innovation',
+    description: 'Designed a co-working space discovery and booking app concept enabling flexible, on-demand workplace access for hybrid workers.',
+    tags: ['App Design', 'Innovation', 'Future of Work'],
+  },
+  {
+    company: 'ISADORE GROUP',
+    course: 'Neuromanagement',
+    description: 'Designed and ran an experiment measuring the impact of decentralized management on productivity and motivation using EEG, ECG, Skin Conductance, and Face Reader tools.',
+    tags: ['Neuromanagement', 'EEG/ECG', 'Organizational Behavior'],
+  },
+  {
+    company: 'Four Seasons Hotel',
+    course: 'Organizational Behavior',
+    description: 'Analyzed how Four Seasons Hotel strategically harnesses organizational culture elements to deliver consistent luxury service at scale.',
+    tags: ['Organizational Culture', 'Luxury Hospitality', 'Leadership'],
+  },
+  {
+    company: 'Campari Group',
+    course: 'Internal Communication',
+    description: 'Designed a strategic plan for Campari Group to amplify employee engagement within a hybrid work setup, focusing on internal communication channels and content.',
+    tags: ['Internal Comms', 'Employee Engagement', 'Hybrid Work'],
+  },
+  {
+    company: 'Lines Group',
+    course: 'Corporate Social Responsibility',
+    description: 'Developed a comprehensive sustainability project and devised communication strategies aimed at empowering women and advancing gender equality.',
+    tags: ['CSR', 'Sustainability', 'Gender Equality'],
+  },
+  {
+    company: 'Confindustria',
+    course: 'Public Affairs & Digital Advocacy',
+    description: 'Analyzed the September 21, 2021 decree-law on COVID-19 swab cost responsibility from a public affairs perspective, proposing digital advocacy strategies.',
+    tags: ['Public Affairs', 'Digital Advocacy', 'Policy Analysis'],
+  },
+];
+---
+<section id="projects" class="section">
+  <div class="container">
+    <p class="section-label">{tr.projects.label}</p>
+    <h2 class="section-title">{tr.projects.title}</h2>
+    <p class="projects-intro">Selected projects developed during the M.Sc in Strategic Communication at IULM University, combining research, strategy, and communication across industries.</p>
+
+    <div class="projects-grid">
+      {projects.map((p, i) => (
+        <div class="project-card card fade-in" style={`transition-delay:${(i % 4) * 0.08}s`}>
+          <div class="project-header">
+            <span class="project-course">{p.course}</span>
+          </div>
+          <h3 class="project-company">{p.company}</h3>
+          <p class="project-description">{p.description}</p>
+          <div class="project-tags">
+            {p.tags.map(t => <span class="tag">{t}</span>)}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+#projects { background: var(--white); }
+
+.projects-intro {
+  color: var(--muted);
+  font-size: 1rem;
+  margin-top: -1.5rem;
+  margin-bottom: 2.5rem;
+  max-width: 680px;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.1rem;
+}
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.project-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.project-course {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--violet);
+  background: var(--violet-light);
+  padding: 0.2rem 0.6rem;
+  border-radius: 0.5rem;
+}
+
+.project-company {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--dark);
+  line-height: 1.25;
+}
+
+.project-description {
+  font-size: 0.82rem;
+  color: var(--muted);
+  line-height: 1.55;
+  flex: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: auto;
+}
+.project-tags .tag {
+  font-size: 0.72rem;
+  padding: 0.15rem 0.55rem;
+}
+
+@media (max-width: 1024px) {
+  .projects-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 768px) {
+  .projects-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 500px) {
+  .projects-grid { grid-template-columns: 1fr; }
+}
+</style>
