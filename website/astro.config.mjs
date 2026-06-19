@@ -1,12 +1,16 @@
 import { defineConfig } from 'astro/config';
+import cloudflare from '@astrojs/cloudflare';
 
-const base = process.env.BASE_PATH ?? '/';
-const site = process.env.SITE_URL
-  ? `${process.env.SITE_URL}${base === '/' ? '' : base}`
-  : 'http://localhost:4321';
+const isProd = process.argv.includes('build');
+
+const integrations = [];
+if (!isProd) {
+  const react = (await import('@astrojs/react')).default;
+  const keystatic = (await import('@keystatic/astro')).default;
+  integrations.push(react(), keystatic());
+}
 
 export default defineConfig({
-  site,
-  base,
-  output: 'static',
+  ...(isProd && { adapter: cloudflare() }),
+  integrations,
 });

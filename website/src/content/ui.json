@@ -1,0 +1,50 @@
+{
+  "en": {
+    "cvFile": "cv.pdf",
+    "htmlLang": "en",
+    "nav": {
+      "about": "About",
+      "experience": "Experience",
+      "skills": "Skills",
+      "projects": "Projects",
+      "writing": "Writing",
+      "contact": "Contact",
+      "download": "Download CV",
+      "switchLabel": "IT"
+    },
+    "hero": {
+      "greeting": "Hello, I'm",
+      "quote": "\"Success is driven by the ability to adapt, communicate effectively, and lead with purpose.\"",
+      "download": "Download CV",
+      "scroll": "Scroll"
+    },
+    "certifications": { "label": "Credentials", "title": "Certifications" },
+    "projects": { "label": "Academic & Professional", "title": "Project Works" },
+    "thesis": { "label": "Academic Research", "title": "Final Dissertations" },
+    "writing": { "label": "Personal Writing", "title": "On Medium" }
+  },
+  "it": {
+    "cvFile": "cv_it.pdf",
+    "htmlLang": "it",
+    "nav": {
+      "about": "Chi sono",
+      "experience": "Esperienza",
+      "skills": "Competenze",
+      "projects": "Progetti",
+      "writing": "Articoli",
+      "contact": "Contatti",
+      "download": "Scarica CV",
+      "switchLabel": "EN"
+    },
+    "hero": {
+      "greeting": "Ciao, sono",
+      "quote": "\"Il successo nasce dalla capacità di adattarsi, comunicare con efficacia e guidare con determinazione.\"",
+      "download": "Scarica il CV",
+      "scroll": "Scorri"
+    },
+    "certifications": { "label": "Credenziali", "title": "Certificazioni" },
+    "projects": { "label": "Accademico & Professionale", "title": "Project Works" },
+    "thesis": { "label": "Ricerca Accademica", "title": "Tesi di Laurea" },
+    "writing": { "label": "Scrittura Personale", "title": "Su Medium" }
+  }
+}

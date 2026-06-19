@@ -1,0 +1,34 @@
+{
+  "en": {
+    "label": "About Me",
+    "titleHtml": "Strategy into action.<br/>Communication with impact.",
+    "bio": [
+      "Hi, I'm Ylenia — a Marketing and Communication professional based in Milan, with expertise in corporate social responsibility, stakeholder management, project coordination, and cross-functional execution.",
+      "I help companies enhance their brand value and build meaningful relationships with clients and stakeholders. My approach combines creativity with analytical thinking — translating strategy into clear communication plans, executive-ready reporting, and structured workflows that drive sustainable impact.",
+      "I am looking to contribute in roles where operational discipline, communication clarity, CSR alignment, and collaboration drive measurable business and social impact."
+    ],
+    "location": "Milan, Italy",
+    "metrics": [
+      { "number": "4+", "label": "Years of experience in corporate communication & CSR" },
+      { "number": "500+", "label": "Employees reached with internal communication at Roche" },
+      { "number": "+20%", "label": "Engagement increase driven at CBA Law Firm in Q1" },
+      { "number": "10+", "label": "Corporate events planned & executed end-to-end" }
+    ]
+  },
+  "it": {
+    "label": "Chi Sono",
+    "titleHtml": "Dalla strategia all'azione.<br/>Comunicazione con impatto.",
+    "bio": [
+      "Sono Ylenia — una professionista di Marketing e Comunicazione con sede a Milano, specializzata in responsabilità sociale d'impresa (CSR), stakeholder management, coordinamento progettuale ed esecuzione cross-funzionale.",
+      "Aiuto le aziende a valorizzare il proprio brand e a costruire relazioni significative con clienti e stakeholder. Il mio approccio combina creatività e pensiero analitico — traducendo la strategia in piani di comunicazione chiari, report per il management e processi strutturati che generano impatto sostenibile.",
+      "Cerco ruoli in cui disciplina operativa, chiarezza comunicativa, allineamento CSR e collaborazione possano generare un impatto misurabile sul business e sulla società."
+    ],
+    "location": "Milano, Italia",
+    "metrics": [
+      { "number": "4+", "label": "Anni di esperienza in comunicazione corporate e CSR" },
+      { "number": "500+", "label": "Dipendenti raggiunti con la comunicazione interna in Roche" },
+      { "number": "+20%", "label": "Aumento di engagement raggiunto in CBA Law Firm nel primo trimestre" },
+      { "number": "10+", "label": "Eventi aziendali pianificati ed eseguiti end-to-end" }
+    ]
+  }
+}

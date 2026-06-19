@@ -4,6 +4,10 @@
   "scripts": {
     "dev": "pnpm -F website dev",
     "build": "pnpm -F website build",
-    "preview": "pnpm -F website preview"
+    "preview": "pnpm -F website preview",
+    "generate:latex": "node scripts/generate-latex.mjs"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": ["esbuild", "workerd", "sharp"]
   }
 }

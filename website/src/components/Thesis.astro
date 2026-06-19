@@ -1,30 +1,12 @@
 ---
 import { t, type Lang } from '../i18n/index.ts';
+import thesesData from '../content/theses.json';
 
 interface Props { lang: Lang; }
 const { lang } = Astro.props;
 const tr = t(lang);
 
-const theses = [
-  {
-    level: "Master's Thesis",
-    degree: 'M.Sc in Strategic Communication',
-    institution: 'IULM University, Milan',
-    year: '2022',
-    title: 'Public Affair solutions to facilitate the adoption of sustainable fishing methods in the Italian seas',
-    abstract: 'Addresses sustainable ocean exploitation through the UN Agenda 2030 framework, examining Italy\'s position on sustainable fishing and the measures adopted to tackle by-catches. Uses a top-down approach from European to Italian policy, including a survey of 30 Sicilian fishermen. Proposes a dual communication strategy targeting public awareness and fisherman coordination for effective policy influence.',
-    keywords: ['Public Affairs', 'Sustainability', 'CSR', 'Policy Communication', 'UN Agenda 2030'],
-  },
-  {
-    level: "Bachelor's Thesis",
-    degree: 'B.Sc in Modern Languages and Cultures',
-    institution: 'KORE University, Enna',
-    year: '2019',
-    title: 'The condition of women in Islam: the cases of Morocco, Saudi Arabia, and Afghanistan',
-    abstract: 'Analyzes the emergence and development of Islamic feminism across three nations through four chapters: pre-Islamic tribal culture and the Nahda period; Morocco\'s Pink Revolution and the Mudawwanat family code reforms; the evolution of women\'s rights in Saudi Arabia; and women\'s associations operating under fundamentalist pressures in Afghanistan.',
-    keywords: ['Gender Studies', 'Islamic Feminism', 'Comparative Policy', 'Human Rights', 'MENA Region'],
-  },
-];
+const theses = thesesData.items;
 ---
 <section id="thesis" class="section">
   <div class="container">

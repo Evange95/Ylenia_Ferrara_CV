@@ -1,0 +1,24 @@
+{
+  "en": {
+    "label": "Capabilities",
+    "title": "Skills",
+    "groups": [
+      { "icon": "📣", "category": "Communication", "skills": ["Content Strategy", "Copywriting", "Strategic Communication", "Executive Reporting", "Stakeholder Engagement", "Rebranding"] },
+      { "icon": "🎯", "category": "Marketing", "skills": ["Digital Ads", "Email Marketing", "Social Media", "LinkedIn Ads", "Editorial Planning", "Campaign Optimization"] },
+      { "icon": "🗂️", "category": "Project Management", "skills": ["Agile", "Project Planning", "Team Coordination", "Budget Management", "Performance Monitoring", "C-level Reporting"] },
+      { "icon": "🌍", "category": "Languages", "skills": ["Italian — Native", "English — C1", "Arabic — A2", "French — A2", "Spanish — A2"] },
+      { "icon": "🛠️", "category": "Tools & Platforms", "skills": ["Notion", "WordPress", "Drupal", "Storyblok", "Office 365", "Google Analytics 4", "Piwik PRO", "MailUP"] }
+    ]
+  },
+  "it": {
+    "label": "Competenze",
+    "title": "Competenze",
+    "groups": [
+      { "icon": "📣", "category": "Comunicazione", "skills": ["Content Strategy", "Copywriting", "Comunicazione Strategica", "Exec Reporting", "Stakeholder Engagement", "Rebranding"] },
+      { "icon": "🎯", "category": "Marketing", "skills": ["Digital Ads", "Email Marketing", "Social Media", "LinkedIn Ads", "Pianificazione Editoriale", "Ottimizzazione Campagne"] },
+      { "icon": "🗂️", "category": "Project Management", "skills": ["Agile", "Pianificazione", "Coordinamento Team", "Gestione Budget", "Monitoraggio Performance", "C-level Reporting"] },
+      { "icon": "🌍", "category": "Lingue", "skills": ["Italiano — Madrelingua", "Inglese — C1", "Arabo — A2", "Francese — A2", "Spagnolo — A2"] },
+      { "icon": "🛠️", "category": "Strumenti", "skills": ["Notion", "WordPress", "Drupal", "Storyblok", "Office 365", "Google Analytics 4", "Piwik PRO", "MailUP"] }
+    ]
+  }
+}

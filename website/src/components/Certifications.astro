@@ -1,63 +1,12 @@
 ---
 import { t, type Lang } from '../i18n/index.ts';
+import certsData from '../content/certifications.json';
 
 interface Props { lang: Lang; }
 const { lang } = Astro.props;
 const tr = t(lang);
 
-const years = [
-  {
-    year: '2025',
-    certs: [
-      { issuer: 'LinkedIn', name: 'Marketing Insider Badge' },
-      { issuer: 'LinkedIn', name: 'Marketing Strategy' },
-      { issuer: 'LinkedIn', name: 'Content and Creative Design' },
-    ],
-  },
-  {
-    year: '2024',
-    certs: [
-      { issuer: 'LinkedIn', name: 'Introduction to Social Media Marketing' },
-    ],
-  },
-  {
-    year: '2023',
-    certs: [
-      { issuer: 'Google / Coursera', name: 'Foundations of Project Management' },
-      { issuer: 'Google / Coursera', name: 'Agile Project Management' },
-      { issuer: 'Google / Coursera', name: 'Project Initiation' },
-      { issuer: 'Google / Coursera', name: 'Project Planning' },
-      { issuer: 'Google / Coursera', name: 'Running the Project' },
-      { issuer: 'Google / Coursera', name: 'Applying PM in the Real World' },
-      { issuer: 'Google', name: 'Google Analytics (GA4, GTM, GA360)' },
-      { issuer: 'Asana', name: 'Asana' },
-      { issuer: 'Google', name: 'Google Digital Training' },
-      { issuer: 'Canva', name: 'Canva' },
-      { issuer: 'Figma', name: 'Figma' },
-    ],
-  },
-  {
-    year: '2022',
-    certs: [
-      { issuer: 'LinkedIn', name: 'Social Media Marketing: Strategy and Optimization' },
-      { issuer: 'LinkedIn', name: 'Content Creation: Strategy and Tools' },
-      { issuer: 'Microsoft', name: 'Excel — VLOOKUP and XLOOKUP' },
-      { issuer: 'Various', name: 'Sustainability Contest' },
-    ],
-  },
-  {
-    year: '2021',
-    certs: [
-      { issuer: 'LVMH', name: 'LVMH Certification' },
-    ],
-  },
-  {
-    year: '2019',
-    certs: [
-      { issuer: 'Oxford International', name: 'English Language — Student Progress Report' },
-    ],
-  },
-];
+const years = certsData.years;
 
 const issuerColor: Record<string, string> = {
   'LinkedIn':         '#0A66C2',

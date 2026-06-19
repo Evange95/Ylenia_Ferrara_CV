@@ -1,0 +1,44 @@
+{
+  "en": {
+    "label": "Academic Background",
+    "title": "Education",
+    "thesisLabel": "Thesis",
+    "degrees": [
+      {
+        "degree": "M.Sc in Strategic Communication",
+        "institution": "IULM University",
+        "location": "Milan, Italy",
+        "period": "2020 – 2022",
+        "thesis": "Public Affair solutions to facilitate the adoption of sustainable fishing methods in the Italian seas."
+      },
+      {
+        "degree": "B.Sc in Modern Languages and Cultures",
+        "institution": "KORE University",
+        "location": "Enna, Italy",
+        "period": "2016 – 2019",
+        "thesis": "The condition of women in Islam — The cases of Morocco, Saudi Arabia and Afghanistan."
+      }
+    ]
+  },
+  "it": {
+    "label": "Formazione",
+    "title": "Formazione",
+    "thesisLabel": "Tesi",
+    "degrees": [
+      {
+        "degree": "Laurea Magistrale in Comunicazione Strategica",
+        "institution": "Università IULM",
+        "location": "Milano, Italia",
+        "period": "2020 – 2022",
+        "thesis": "Soluzioni di Public Affairs per facilitare l'adozione di metodi di pesca sostenibile nei mari italiani."
+      },
+      {
+        "degree": "Laurea Triennale in Lingue e Culture Moderne",
+        "institution": "Università KORE",
+        "location": "Enna, Italia",
+        "period": "2016 – 2019",
+        "thesis": "La condizione della donna nell'Islam — I casi di Marocco, Arabia Saudita e Afghanistan."
+      }
+    ]
+  }
+}

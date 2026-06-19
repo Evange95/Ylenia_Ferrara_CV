@@ -1,0 +1,124 @@
+{
+  "en": {
+    "label": "Career",
+    "title": "Experience",
+    "current": "Current",
+    "jobs": [
+      {
+        "title": "CSR Lead & Corporate Communication Specialist",
+        "company": "Econocom International Italia",
+        "location": "Milan, Italy",
+        "period": "Jun 2026 – Present",
+        "current": true,
+        "items": [
+          "Championed <strong>CSR strategy development</strong> and corporate social responsibility program execution, aligning initiatives with business transformation and sustainability goals.",
+          "Led <strong>stakeholder engagement</strong> for CSR initiatives, building partnerships across internal teams and external organizations to drive measurable impact.",
+          "Directed communication and messaging for <strong>transformation projects</strong>, ensuring clarity and alignment across organizational levels."
+        ]
+      },
+      {
+        "title": "Marketing & Communication Specialist",
+        "company": "Econocom International Italia",
+        "location": "Milan, Italy",
+        "period": "Dec 2024 – Jun 2026",
+        "current": false,
+        "items": [
+          "Directed collaboration across <strong>internal teams</strong>, channel partners, and the external PR agency, ensuring consistent messaging and timely execution.",
+          "Built and managed the company's <strong>LinkedIn presence</strong>, defining editorial plans and campaign optimization cycles.",
+          "Led <strong>project review governance</strong> with <strong>C-level stakeholders</strong>, delivering structured reports that improved cross-department priority alignment.",
+          "Produced <strong>success case studies</strong> and internal reports used by leadership to communicate achievements.",
+          "Managed <strong>budget and resource allocation</strong>, improving execution efficiency across communication activities.",
+          "Tracked campaign and channel performance through dashboards, enabling faster <strong>data-driven decisions</strong>."
+        ]
+      },
+      {
+        "title": "Marketing & Communication Specialist",
+        "company": "CBA Law Firm",
+        "location": "Milan, Italy",
+        "period": "Apr 2024 – Nov 2024",
+        "current": false,
+        "items": [
+          "Led the firm's <strong>rebranding project</strong>, coordinating creative, content, and digital teams to deliver a unified brand identity.",
+          "Redesigned <strong>internal communication workflows</strong> with MailUP and standardized processes, improving consistency and speed.",
+          "Optimized digital communication strategy through continuous performance tracking, achieving a <strong>+20% increase in engagement</strong> in Q1.",
+          "Directed the firm's <strong>website migration</strong> from Drupal to WordPress, improving UX and reducing management complexity.",
+          "Planned and delivered corporate and client <strong>events</strong> that strengthened stakeholder engagement."
+        ]
+      },
+      {
+        "title": "Internal & Corporate Communication Specialist",
+        "company": "Roche S.p.A.",
+        "location": "Milan, Italy",
+        "period": "Jun 2022 – Nov 2023",
+        "current": false,
+        "items": [
+          "Managed <strong>internal communication</strong> for over <strong>500 employees</strong>, ensuring timely information flow across departments.",
+          "Coordinated cross-functional teams (IT, creative, business) for the launch of the new corporate website.",
+          "Planned and executed <strong>10+ corporate events</strong>, overseeing logistics, communication, and budgets.",
+          "Monitored media sentiment and reputational risk indicators, providing actionable insights to senior stakeholders."
+        ]
+      }
+    ]
+  },
+  "it": {
+    "label": "Carriera",
+    "title": "Esperienza",
+    "current": "Attuale",
+    "jobs": [
+      {
+        "title": "CSR Lead & Corporate Communication Specialist",
+        "company": "Econocom International Italia",
+        "location": "Milano, Italia",
+        "period": "Giu 2026 – Presente",
+        "current": true,
+        "items": [
+          "Guidato lo <strong>sviluppo della strategia CSR</strong> e l'esecuzione di programmi di responsabilità sociale d'impresa, allineando le iniziative agli obiettivi di trasformazione aziendale e sostenibilità.",
+          "Coordinato lo <strong>stakeholder engagement</strong> sui progetti CSR, costruendo collaborazioni tra team interni e organizzazioni esterne per generare impatto misurabile.",
+          "Definito comunicazione e messaging per i <strong>progetti di trasformazione</strong>, garantendo chiarezza e allineamento a tutti i livelli organizzativi."
+        ]
+      },
+      {
+        "title": "Marketing & Communication Specialist",
+        "company": "Econocom International Italia",
+        "location": "Milano, Italia",
+        "period": "Dic 2024 – Giu 2026",
+        "current": false,
+        "items": [
+          "Coordinato la collaborazione tra <strong>team interni</strong>, partner di canale e agenzia PR esterna, garantendo coerenza dei messaggi e puntualità esecutiva.",
+          "Creato e gestito la <strong>presenza LinkedIn</strong> aziendale, definendo piani editoriali e cicli di ottimizzazione campagne.",
+          "Guidato la <strong>governance delle project review</strong> con stakeholder <strong>C-level</strong>, producendo report strutturati a supporto dell'allineamento interfunzionale.",
+          "Prodotto <strong>success case</strong> e report interni utilizzati dal management per valorizzare risultati e consolidare la fiducia degli stakeholder.",
+          "Gestito <strong>budget e allocazione delle risorse</strong>, migliorando l'efficienza esecutiva delle attività di comunicazione.",
+          "Monitorato le performance di campagne e canali tramite dashboard, abilitando decisioni <strong>data-driven</strong> più rapide."
+        ]
+      },
+      {
+        "title": "Marketing & Communication Specialist",
+        "company": "CBA Law Firm",
+        "location": "Milano, Italia",
+        "period": "Apr 2024 – Nov 2024",
+        "current": false,
+        "items": [
+          "Guidato il <strong>progetto di rebranding</strong> dello studio, coordinando team creativi, content e digital per una brand identity uniforme su tutti i canali.",
+          "Ridisegnato i <strong>processi di comunicazione interna</strong> con introduzione di MailUP e workflow standardizzati, migliorando coerenza e velocità esecutiva.",
+          "Ottimizzato la strategia di comunicazione digitale tramite monitoraggio continuo, contribuendo a un <strong>+20% di engagement</strong> nel primo trimestre.",
+          "Diretto la <strong>migrazione del sito</strong> da Drupal a WordPress, migliorando esperienza utente e semplificando la gestione contenuti.",
+          "Pianificato e realizzato <strong>eventi corporate e clienti</strong> che hanno rafforzato engagement degli stakeholder."
+        ]
+      },
+      {
+        "title": "Internal & Corporate Communication Specialist",
+        "company": "Roche S.p.A.",
+        "location": "Milano, Italia",
+        "period": "Giu 2022 – Nov 2023",
+        "current": false,
+        "items": [
+          "Gestito la <strong>comunicazione interna</strong> per oltre <strong>500 dipendenti</strong>, garantendo flussi informativi tempestivi e allineamento tra funzioni.",
+          "Coordinato team cross-funzionali (IT, creativo e business) per il lancio del nuovo sito corporate, rispettando milestone e obiettivi condivisi.",
+          "Pianificato ed eseguito <strong>oltre 10 eventi aziendali</strong>, gestendo logistica, comunicazione e budget con elevata qualità operativa.",
+          "Monitorato sentiment media e indicatori di rischio reputazionale, fornendo insight operativi al senior management."
+        ]
+      }
+    ]
+  }
+}
