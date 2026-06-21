@@ -5,7 +5,8 @@
     "dev": "pnpm -F website dev",
     "build": "pnpm -F website build",
     "preview": "pnpm -F website preview",
-    "generate:latex": "node scripts/generate-latex.mjs"
+    "generate:latex": "node scripts/generate-latex.mjs",
+    "generate": "node scripts/generate-latex.mjs && make -C latex"
   },
   "pnpm": {
     "onlyBuiltDependencies": ["esbuild", "workerd", "sharp"]
