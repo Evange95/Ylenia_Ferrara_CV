@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://yleniaferrara.com/sitemap-index.xml
