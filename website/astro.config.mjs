@@ -1,6 +1,5 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
-import cloudflare from '@astrojs/cloudflare';
 
 const isProd = process.argv.includes('build') || process.argv.includes('preview');
 
@@ -18,6 +17,5 @@ if (!isProd) {
 
 export default defineConfig({
   site: 'https://yleniaferrara.com',
-  ...(isProd && { adapter: cloudflare() }),
   integrations,
 });

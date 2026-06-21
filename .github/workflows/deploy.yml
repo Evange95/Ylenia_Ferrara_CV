@@ -13,23 +13,14 @@ jobs:
 
       # ── Build LaTeX PDFs ──────────────────────────────────────────────
       - name: Install TeX Live (XeLaTeX + fonts)
-        run: |
-          sudo apt-get update -qq
-          sudo apt-get install -y --no-install-recommends \
-            texlive-xetex \
-            texlive-fonts-recommended \
-            texlive-fonts-extra \
-            texlive-latex-extra \
-            fonts-roboto \
-            fonts-font-awesome
+        uses: awalsh128/cache-apt-pkgs-action@v1
+        with:
+          packages: texlive-xetex texlive-fonts-recommended texlive-fonts-extra texlive-latex-extra fonts-roboto fonts-font-awesome
+          version: 1.0
 
-      - name: Build English CV
+      - name: Build CVs
         working-directory: latex
-        run: make en
-
-      - name: Build Italian CV
-        working-directory: latex
-        run: make it
+        run: make -j2
 
       - name: Copy PDFs to website public/
         run: |
@@ -47,7 +38,7 @@ jobs:
           cache: pnpm
 
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: pnpm install --frozen-lockfile --prefer-offline
 
       - name: Build website
         run: pnpm build
