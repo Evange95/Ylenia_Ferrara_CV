@@ -54,34 +54,34 @@ cp cv_it.pdf ../website/public/cv_it.pdf
 
 ## Scripts
 
-| Command | Description |
-|---|---|
-| `pnpm dev` | Astro dev server + Keystatic admin |
-| `pnpm build` | Production build to `website/dist/` |
-| `pnpm preview` | Preview production build locally |
-| `pnpm generate:latex` | Regenerate LaTeX .tex files from JSON content |
-| `pnpm generate` | Generate .tex files + build PDFs |
-| `cd latex && make` | Build both PDFs |
-| `cd latex && make en` | Build English PDF only |
-| `cd latex && make it` | Build Italian PDF only |
-| `cd latex && make clean` | Remove build artifacts |
+| Command                  | Description                                   |
+| ------------------------ | --------------------------------------------- |
+| `pnpm dev`               | Astro dev server + Keystatic admin            |
+| `pnpm build`             | Production build to `website/dist/`           |
+| `pnpm preview`           | Preview production build locally              |
+| `pnpm generate:latex`    | Regenerate LaTeX .tex files from JSON content |
+| `pnpm generate`          | Generate .tex files + build PDFs              |
+| `cd latex && make`       | Build both PDFs                               |
+| `cd latex && make en`    | Build English PDF only                        |
+| `cd latex && make it`    | Build Italian PDF only                        |
+| `cd latex && make clean` | Remove build artifacts                        |
 
 ## Content management
 
 All website content lives in `website/src/content/*.json`. Each bilingual file has `en` and `it` top-level keys.
 
-| File | Content |
-|---|---|
-| `ui.json` | Nav labels, hero text, section headings |
-| `about.json` | Bio, metrics |
-| `experience.json` | Work experience |
-| `education.json` | Degrees |
-| `skills.json` | Skill groups |
-| `contact.json` | Contact info |
-| `certifications.json` | Certification timeline |
-| `projects.json` | Academic projects |
-| `writing.json` | Medium articles |
-| `theses.json` | Thesis details |
+| File                  | Content                                 |
+| --------------------- | --------------------------------------- |
+| `ui.json`             | Nav labels, hero text, section headings |
+| `about.json`          | Bio, metrics                            |
+| `experience.json`     | Work experience                         |
+| `education.json`      | Degrees                                 |
+| `skills.json`         | Skill groups                            |
+| `contact.json`        | Contact info                            |
+| `certifications.json` | Certification timeline                  |
+| `projects.json`       | Academic projects                       |
+| `writing.json`        | Medium articles                         |
+| `theses.json`         | Thesis details                          |
 
 Edit content via the **Keystatic admin UI** at `localhost:4321/keystatic` during development, or directly in the JSON files.
 
@@ -96,6 +96,7 @@ Note: `summary.tex` and `certification.tex` are not auto-generated -- edit those
 ## SEO & Performance
 
 The site includes:
+
 - Canonical URLs + hreflang tags (EN/IT/x-default)
 - Open Graph and Twitter Card meta tags
 - JSON-LD Person structured data
@@ -110,17 +111,18 @@ Lighthouse scores (production): Performance 99, Accessibility 100, Best Practice
 ## Deployment
 
 Push to `main` triggers the GitHub Actions workflow which:
+
 1. Installs TeX Live and builds both PDFs
 2. Copies PDFs into `website/public/`
 3. Builds the Astro site
 4. Deploys to Cloudflare Pages
 
 Required GitHub secrets:
+
 - `CLOUDFLARE_API_TOKEN`
 - `CLOUDFLARE_ACCOUNT_ID`
 
-Optional GitHub variable:
-- `CLOUDFLARE_PROJECT_NAME` (defaults to `ylenia-ferrara-cv`)
+The Pages project name is `ylenia-ferrara-cv` (hardcoded in the workflow).
 
 ## Credits
 

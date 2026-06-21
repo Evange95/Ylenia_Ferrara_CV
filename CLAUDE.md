@@ -141,7 +141,8 @@ Content changes (new roles, updated skills, etc.):
 Push to `main` triggers the CI workflow. Requires these GitHub secrets:
 - `CLOUDFLARE_API_TOKEN`
 - `CLOUDFLARE_ACCOUNT_ID`
-- `CLOUDFLARE_PROJECT_NAME` (optional variable, defaults to `ylenia-ferrara-cv`)
+
+The Pages project name is `ylenia-ferrara-cv` (hardcoded in the workflow).
 
 ## Accessibility
 

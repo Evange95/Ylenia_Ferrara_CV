@@ -58,4 +58,5 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy website/dist --project-name=yleniaferraracv
+          wranglerVersion: '4'
+          command: pages deploy website/dist --project-name=ylenia-ferrara-cv --commit-dirty=true
