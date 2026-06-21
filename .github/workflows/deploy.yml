@@ -58,4 +58,4 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy website/dist --project-name=${{ vars.CLOUDFLARE_PROJECT_NAME || 'ylenia-ferrara-cv' }}
+          command: pages deploy website/dist --project-name=yleniaferraracv
