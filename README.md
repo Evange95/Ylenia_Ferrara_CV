@@ -1,117 +1,127 @@
-<h1 align="center">
-  <a href="https://github.com/posquit0/Awesome-CV" title="AwesomeCV Documentation">
-    <img alt="AwesomeCV" src="https://github.com/posquit0/Awesome-CV/raw/master/icon.png" width="200px" height="200px" />
-  </a>
-  <br />
-  Awesome CV
-</h1>
+# Ylenia Ferrara -- CV & Portfolio
 
-<p align="center">
-  LaTeX template for your outstanding job application
-</p>
+Bilingual (EN/IT) portfolio website and LaTeX CV for Ylenia Ferrara, CSR Lead & Corporate Communication Specialist.
 
-<div align="center">
-  <a href="https://www.paypal.me/posquit0">
-    <img alt="Donate" src="https://img.shields.io/badge/Donate-PayPal-blue.svg" />
-  </a>
-  <a href="https://circleci.com/gh/posquit0/Awesome-CV">
-    <img alt="CircleCI" src="https://circleci.com/gh/posquit0/Awesome-CV.svg?style=shield" />
-  </a>
-  <a href="https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/resume.pdf">
-    <img alt="Example Resume" src="https://img.shields.io/badge/resume-pdf-green.svg" />
-  </a>
-  <a href="https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/cv.pdf">
-    <img alt="Example CV" src="https://img.shields.io/badge/cv-pdf-green.svg" />
-  </a>
-  <a href="https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/coverletter.pdf">
-    <img alt="Example Coverletter" src="https://img.shields.io/badge/coverletter-pdf-green.svg" />
-  </a>
-</div>
+- **Website** -- Astro 6 on Cloudflare Pages
+- **CV** -- XeLaTeX, based on [Awesome CV](https://github.com/posquit0/Awesome-CV)
+- **Content** -- single-source JSON managed via Keystatic CMS
 
-<br />
+## Repository structure
 
-## What is Awesome CV?
+```
+website/                  Astro 6 portfolio site
+  src/content/*.json      bilingual content (single source of truth)
+  src/components/         one Astro component per section
+  src/layouts/            HTML shell, SEO meta, fonts
+  src/i18n/               i18n helper -- t(lang) reads JSON content
+  src/styles/global.css   CSS design system (violet #9862DD)
+  keystatic.config.tsx    CMS schema (dev-only)
+  public/                 static assets, robots.txt, _headers
 
-**Awesome CV** is LaTeX template for a **CV(Curriculum Vitae)**, **Résumé** or **Cover Letter** inspired by [Fancy CV](https://www.sharelatex.com/templates/cv-or-resume/fancy-cv). It is easy to customize your own template, especially since it is really written by a clean, semantic markup.
+latex/                    LaTeX source
+  cv_en.tex / cv_it.tex   entrypoints
+  cv_en/ / cv_it/         section .tex files
+  awesome-cv.cls          template class (do not edit)
+  Makefile                build PDFs into build/
 
+scripts/
+  generate-latex.mjs      regenerate LaTeX sections from JSON content
 
-## Donate
-
-Please help keep this project alive! Donations are welcome and will go towards further development of this project.
-
-    PayPal: paypal.me/posquit0
-    BTC: 1Je3DxJVM2a9nTVPNo55SfQwpmxA6N2KKb
-    BCH: 1Mg1wG7PwHGrHYSWS67TsGSjo5GHEVbF16
-    ETH: 0x77ED9B4659F80205E9B9C9FB1E26EDB9904AFCC7
-    QTUM: QZT7D6m3QtTTqp7s4ZWAwLtGDsoHMMaM8E
-
-*Thank you for your support!*
-
-## Preview
-
-#### Résumé
-
-You can see [PDF](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/resume.pdf)
-
-| Page. 1 | Page. 2 |
-|:---:|:---:|
-| [![Résumé](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/resume-0.png)](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/resume.pdf)  | [![Résumé](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/resume-1.png)](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/resume.pdf) |
-
-#### Cover Letter
-
-You can see [PDF](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/coverletter.pdf)
-
-| Without Sections | With Sections |
-|:---:|:---:|
-| [![Cover Letter(Traditional)](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/coverletter-0.png)](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/coverletter.pdf)  | [![Cover Letter(Awesome)](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/coverletter-1.png)](https://raw.githubusercontent.com/posquit0/Awesome-CV/master/examples/coverletter.pdf) |
-
-
-## Quick Start
-
-* [**Edit Résumé on OverLeaf.com**](https://www.overleaf.com/latex/templates/awesome-cv/tvmzpvdjfqxp)
-* [**Edit Cover Letter on OverLeaf.com**](https://www.overleaf.com/latex/templates/awesome-cv-cover-letter/pfzzjspkthbk)
-
-**_Note:_ Above services do not guarantee up-to-date source code of Awesome CV**
-
-
-## How to Use
-
-#### Requirements
-
-A full TeX distribution is assumed.  [Various distributions for different operating systems (Windows, Mac, \*nix) are available](http://tex.stackexchange.com/q/55437) but TeX Live is recommended.
-You can [install TeX from upstream](http://tex.stackexchange.com/q/1092) (recommended; most up-to-date) or use `sudo apt-get install texlive-full` if you really want that.  (It's generally a few years behind.)
-
-#### Usage
-
-At a command prompt, run
-
-```bash
-$ xelatex {your-cv}.tex
+.github/workflows/
+  deploy.yml              CI: build PDFs -> build Astro -> deploy to Cloudflare Pages
 ```
 
-This should result in the creation of ``{your-cv}.pdf``
+## Prerequisites
 
+- [pnpm](https://pnpm.io/) (package manager)
+- [XeLaTeX](https://tug.org/xetex/) (for PDF builds)
 
-## Credit
+## Getting started
 
-[**LaTeX**](http://www.latex-project.org) is a fantastic typesetting program that a lot of people use these days, especially the math and computer science people in academia.
+```bash
+pnpm install              # install dependencies
+pnpm dev                  # dev server at localhost:4321
+                          # Keystatic admin at localhost:4321/keystatic
+```
 
-[**LaTeX FontAwesome**](https://github.com/furl/latex-fontawesome) is bindings for FontAwesome icons to be used in XeLaTeX.
+PDFs are not committed. To enable the download buttons locally:
 
-[**Roboto**](https://github.com/google/roboto) is the default font on Android and ChromeOS, and the recommended font for Google’s visual language, Material Design.
+```bash
+cd latex && make           # builds cv_en.pdf and cv_it.pdf
+cp cv_en.pdf ../website/public/cv.pdf
+cp cv_it.pdf ../website/public/cv_it.pdf
+```
 
-[**Source Sans Pro**](https://github.com/adobe-fonts/source-sans-pro) is a set of OpenType fonts that have been designed to work well in user interface (UI) environments.
+## Scripts
 
+| Command | Description |
+|---|---|
+| `pnpm dev` | Astro dev server + Keystatic admin |
+| `pnpm build` | Production build to `website/dist/` |
+| `pnpm preview` | Preview production build locally |
+| `pnpm generate:latex` | Regenerate LaTeX .tex files from JSON content |
+| `pnpm generate` | Generate .tex files + build PDFs |
+| `cd latex && make` | Build both PDFs |
+| `cd latex && make en` | Build English PDF only |
+| `cd latex && make it` | Build Italian PDF only |
+| `cd latex && make clean` | Remove build artifacts |
 
-## Contact
+## Content management
 
-You are free to take my `.tex` file and modify it to create your own resume. Please don't use my resume for anything else without my permission, though!
+All website content lives in `website/src/content/*.json`. Each bilingual file has `en` and `it` top-level keys.
 
-If you have any questions, feel free to join me at [`#posquit0` on Freenode](irc://irc.freenode.net/posquit0) and ask away. Click [here](https://kiwiirc.com/client/irc.freenode.net/posquit0) to connect.
+| File | Content |
+|---|---|
+| `ui.json` | Nav labels, hero text, section headings |
+| `about.json` | Bio, metrics |
+| `experience.json` | Work experience |
+| `education.json` | Degrees |
+| `skills.json` | Skill groups |
+| `contact.json` | Contact info |
+| `certifications.json` | Certification timeline |
+| `projects.json` | Academic projects |
+| `writing.json` | Medium articles |
+| `theses.json` | Thesis details |
 
-Good luck!
+Edit content via the **Keystatic admin UI** at `localhost:4321/keystatic` during development, or directly in the JSON files.
 
+After editing content, regenerate LaTeX and rebuild PDFs:
 
-## See Also
+```bash
+pnpm generate             # regenerates .tex files + builds PDFs
+```
 
-* [Awesome Identity](https://github.com/posquit0/hugo-awesome-identity) - A single-page Hugo theme to introduce yourself.
+Note: `summary.tex` and `certification.tex` are not auto-generated -- edit those by hand.
+
+## SEO & Performance
+
+The site includes:
+- Canonical URLs + hreflang tags (EN/IT/x-default)
+- Open Graph and Twitter Card meta tags
+- JSON-LD Person structured data
+- Sitemap (`@astrojs/sitemap` with i18n)
+- `robots.txt`
+- Responsive images with WebP + JPG fallback (`srcset`/`sizes`)
+- Async Google Fonts loading (non-render-blocking)
+- Cloudflare `_headers` for cache control
+
+Lighthouse scores (production): Performance 99, Accessibility 100, Best Practices 100, SEO 100.
+
+## Deployment
+
+Push to `main` triggers the GitHub Actions workflow which:
+1. Installs TeX Live and builds both PDFs
+2. Copies PDFs into `website/public/`
+3. Builds the Astro site
+4. Deploys to Cloudflare Pages
+
+Required GitHub secrets:
+- `CLOUDFLARE_API_TOKEN`
+- `CLOUDFLARE_ACCOUNT_ID`
+
+Optional GitHub variable:
+- `CLOUDFLARE_PROJECT_NAME` (defaults to `ylenia-ferrara-cv`)
+
+## Credits
+
+LaTeX template based on [Awesome CV](https://github.com/posquit0/Awesome-CV) by posquit0.

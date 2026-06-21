@@ -38,8 +38,21 @@ const base = import.meta.env.BASE_URL;
     <div class="hero-photo-wrap">
       <div class="hero-photo-ring">
         <picture>
-          <source srcset={`${base}me.webp`} type="image/webp" />
-          <img src={`${base}me.jpg`} alt="Ylenia Ferrara — CSR Lead and Corporate Communication Specialist based in Milan" class="hero-photo" width="320" height="320" fetchpriority="high" />
+          <source
+            srcset={`${base}me-320w.webp 320w, ${base}me-640w.webp 640w`}
+            sizes="(max-width: 900px) 220px, 320px"
+            type="image/webp"
+          />
+          <img
+            src={`${base}me-640w.jpg`}
+            srcset={`${base}me-320w.jpg 320w, ${base}me-640w.jpg 640w`}
+            sizes="(max-width: 900px) 220px, 320px"
+            alt="Ylenia Ferrara — CSR Lead and Corporate Communication Specialist based in Milan"
+            class="hero-photo"
+            width="320"
+            height="320"
+            fetchpriority="high"
+          />
         </picture>
       </div>
       <div class="hero-photo-bg"></div>
