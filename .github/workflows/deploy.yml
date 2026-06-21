@@ -20,7 +20,8 @@ jobs:
             texlive-fonts-recommended \
             texlive-fonts-extra \
             texlive-latex-extra \
-            fonts-roboto
+            fonts-roboto \
+            fonts-font-awesome
 
       - name: Build English CV
         working-directory: latex
