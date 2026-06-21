@@ -56,6 +56,14 @@ img { max-width: 100%; display: block; }
   padding: 5rem 0;
 }
 
+.section-spacious {
+  padding: 6rem 0;
+}
+
+.section-compact {
+  padding: 4rem 0;
+}
+
 .section-label {
   font-family: var(--font-body);
   font-size: 0.75rem;
@@ -124,9 +132,12 @@ img { max-width: 100%; display: block; }
   border-radius: var(--radius);
   padding: 1.75rem;
   box-shadow: var(--shadow-sm);
+}
+
+.card-interactive {
   transition: box-shadow 0.2s ease, transform 0.2s ease;
 }
-.card:hover {
+.card-interactive:hover {
   box-shadow: var(--shadow);
   transform: translateY(-2px);
 }
@@ -144,5 +155,7 @@ img { max-width: 100%; display: block; }
 
 @media (max-width: 768px) {
   .section { padding: 3.5rem 0; }
+  .section-spacious { padding: 4rem 0; }
+  .section-compact { padding: 3rem 0; }
   .container { padding: 0 1.25rem; }
 }

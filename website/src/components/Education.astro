@@ -1,17 +1,19 @@
 ---
 import { t, type Lang } from '../i18n/index.ts';
+import thesesData from '../content/theses.json';
 
 interface Props { lang: Lang; }
 const { lang } = Astro.props;
 const tr = t(lang);
 const ed = tr.education;
+const theses = thesesData.items;
 ---
 <section id="education" class="section">
   <div class="container">
     <p class="section-label">{ed.label}</p>
     <h2 class="section-title">{ed.title}</h2>
     <div class="edu-grid">
-      {ed.degrees.map((d, i) => (
+      {ed.degrees.map((d: { period: string; degree: string; institution: string; location: string; thesis: string }, i: number) => (
         <div class="edu-card card fade-in" style={`transition-delay:${i * 0.15}s`}>
           <div class="edu-period">{d.period}</div>
           <h3 class="edu-degree">{d.degree}</h3>
@@ -19,14 +21,64 @@ const ed = tr.education;
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
             {d.institution} · {d.location}
           </p>
-          <p class="edu-thesis">
-            <em>{ed.thesisLabel}:</em> {d.thesis}
-          </p>
+          <button class="edu-thesis-trigger" data-modal={`thesis-modal-${i}`}>
+            <em>{ed.thesisLabel}:</em>
+            <span>{d.thesis}</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </button>
         </div>
       ))}
     </div>
   </div>
+
+  {theses.map((thesis, i: number) => (
+    <div class="thesis-modal-backdrop" id={`thesis-modal-${i}`}>
+      <div class="thesis-modal">
+        <button class="thesis-modal-close" aria-label="Close">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+        <div class="thesis-modal-meta">
+          <span class="thesis-modal-level">{thesis.level}</span>
+          <span class="thesis-modal-year">{thesis.year}</span>
+          <span class="thesis-modal-inst">{thesis.institution} · {thesis.degree}</span>
+        </div>
+        <blockquote class="thesis-modal-title">{thesis.title}</blockquote>
+        <p class="thesis-modal-abstract">{thesis.abstract}</p>
+        <div class="thesis-modal-keywords">
+          {thesis.keywords.map((k: string) => <span class="tag">{k}</span>)}
+        </div>
+      </div>
+    </div>
+  ))}
 </section>
+
+<script>
+function initModals() {
+  document.querySelectorAll<HTMLButtonElement>('.edu-thesis-trigger').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const id = btn.dataset.modal;
+      if (id) document.getElementById(id)?.classList.add('open');
+    });
+  });
+
+  document.querySelectorAll<HTMLDivElement>('.thesis-modal-backdrop').forEach(backdrop => {
+    backdrop.addEventListener('click', (e) => {
+      if (e.target === backdrop) backdrop.classList.remove('open');
+    });
+    backdrop.querySelector('.thesis-modal-close')?.addEventListener('click', () => {
+      backdrop.classList.remove('open');
+    });
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      document.querySelector('.thesis-modal-backdrop.open')?.classList.remove('open');
+    }
+  });
+}
+initModals();
+document.addEventListener('astro:after-swap', initModals);
+</script>
 
 <style>
 .edu-grid {
@@ -37,7 +89,7 @@ const ed = tr.education;
 
 .edu-card {
   position: relative;
-  border-top: 3px solid var(--violet);
+  border-top: 3px solid var(--gold);
 }
 
 .edu-period {
@@ -45,7 +97,7 @@ const ed = tr.education;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--violet);
+  color: var(--gold);
   margin-bottom: 0.75rem;
 }
 
@@ -69,19 +121,149 @@ const ed = tr.education;
 }
 .edu-institution svg { flex-shrink: 0; }
 
-.edu-thesis {
+.edu-thesis-trigger {
+  display: flex;
+  align-items: baseline;
+  gap: 0.35rem;
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  border-left: 2px solid var(--border);
+  padding: 0;
+  padding-left: 0.75rem;
+  font-family: var(--font-body);
   font-size: 0.85rem;
   color: var(--body);
   line-height: 1.55;
-  border-left: 2px solid var(--border);
-  padding-left: 0.75rem;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s;
 }
-.edu-thesis em {
+.edu-thesis-trigger:hover {
+  border-color: var(--violet);
+  color: var(--violet-dark);
+}
+.edu-thesis-trigger em {
   font-style: italic;
   color: var(--muted);
+  flex-shrink: 0;
+}
+.edu-thesis-trigger span { flex: 1; }
+.edu-thesis-trigger svg {
+  flex-shrink: 0;
+  align-self: center;
+  color: var(--muted);
+  transition: color 0.2s;
+}
+.edu-thesis-trigger:hover svg { color: var(--violet); }
+
+/* Modal */
+.thesis-modal-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba(26, 18, 48, 0.5);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+.thesis-modal-backdrop.open {
+  display: flex;
+}
+
+.thesis-modal {
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+  padding: 2.5rem;
+  max-width: 640px;
+  width: 100%;
+  position: relative;
+  animation: modal-in 0.25s ease;
+}
+
+@keyframes modal-in {
+  from { opacity: 0; transform: translateY(12px) scale(0.97); }
+  to   { opacity: 1; transform: none; }
+}
+
+.thesis-modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--muted);
+  padding: 0.25rem;
+  border-radius: 0.25rem;
+  transition: color 0.2s, background 0.2s;
+}
+.thesis-modal-close:hover {
+  color: var(--dark);
+  background: var(--violet-pale);
+}
+
+.thesis-modal-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.thesis-modal-level {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--white);
+  background: var(--violet);
+  padding: 0.15rem 0.55rem;
+  border-radius: 0.5rem;
+}
+
+.thesis-modal-year {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.thesis-modal-inst {
+  font-size: 0.82rem;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.thesis-modal-title {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--dark);
+  line-height: 1.4;
+  font-style: italic;
+  margin-bottom: 1rem;
+}
+
+.thesis-modal-abstract {
+  font-size: 0.9rem;
+  color: var(--body);
+  line-height: 1.7;
+  margin-bottom: 1.25rem;
+}
+
+.thesis-modal-keywords {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
 }
 
 @media (max-width: 700px) {
   .edu-grid { grid-template-columns: 1fr; }
+  .thesis-modal-backdrop { padding: 1rem; }
+  .thesis-modal { padding: 1.75rem; }
 }
 </style>

@@ -1,76 +1,156 @@
 {
-  "items": [
-    {
-      "company": "Dior",
-      "course": "Fashion Communication",
-      "description": "Analyzed the current Zeitgeist to formulate thoughtful suggestions for Dior's upcoming collection, covering fashion cycle analysis, market segmentation, and communication strategy.",
-      "tags": ["Fashion", "Communication Strategy", "Market Segmentation"]
-    },
-    {
-      "company": "Bosch",
-      "course": "Strategic Communication",
-      "description": "Conducted an extensive analysis of the employer branding landscape in the tech industry, comparing competitive strategies and identifying best practices.",
-      "tags": ["Employer Branding", "Tech Industry", "Strategic Analysis"]
-    },
-    {
-      "company": "ENEL",
-      "course": "Digital Communication",
-      "description": "Formulated a comprehensive set of innovative ideas and suggestions to craft an impactful communication strategy promoting green energy adoption.",
-      "tags": ["Digital Strategy", "Green Energy", "Sustainability"]
-    },
-    {
-      "company": "Prime Minister – GOGROUP",
-      "course": "Brand Identity",
-      "description": "Developed a cultural positioning strategy and crafted compelling social media content for a political organization supporting young women.",
-      "tags": ["Brand Identity", "Social Media", "Cultural Positioning"]
-    },
-    {
-      "company": "Tod's",
-      "course": "Strategy & Management",
-      "description": "Performed a comprehensive evaluation of Tod's corporate performance and formulated an astute growth strategy aligned with brand heritage.",
-      "tags": ["Corporate Strategy", "Luxury Brand", "Growth Planning"]
-    },
-    {
-      "company": "Alexa (Amazon)",
-      "course": "Ethnography & Netnography",
-      "description": "Investigated how Italian Generation X engages and interacts with Alexa, using digital ethnographic methods to uncover behavioral patterns.",
-      "tags": ["Netnography", "Consumer Behavior", "Voice Technology"]
-    },
-    {
-      "company": "COPLACE App",
-      "course": "Innovation",
-      "description": "Designed a co-working space discovery and booking app concept enabling flexible, on-demand workplace access for hybrid workers.",
-      "tags": ["App Design", "Innovation", "Future of Work"]
-    },
-    {
-      "company": "ISADORE GROUP",
-      "course": "Neuromanagement",
-      "description": "Designed and ran an experiment measuring the impact of decentralized management on productivity and motivation using EEG, ECG, Skin Conductance, and Face Reader tools.",
-      "tags": ["Neuromanagement", "EEG/ECG", "Organizational Behavior"]
-    },
-    {
-      "company": "Four Seasons Hotel",
-      "course": "Organizational Behavior",
-      "description": "Analyzed how Four Seasons Hotel strategically harnesses organizational culture elements to deliver consistent luxury service at scale.",
-      "tags": ["Organizational Culture", "Luxury Hospitality", "Leadership"]
-    },
-    {
-      "company": "Campari Group",
-      "course": "Internal Communication",
-      "description": "Designed a strategic plan for Campari Group to amplify employee engagement within a hybrid work setup, focusing on internal communication channels and content.",
-      "tags": ["Internal Comms", "Employee Engagement", "Hybrid Work"]
-    },
-    {
-      "company": "Lines Group",
-      "course": "Corporate Social Responsibility",
-      "description": "Developed a comprehensive sustainability project and devised communication strategies aimed at empowering women and advancing gender equality.",
-      "tags": ["CSR", "Sustainability", "Gender Equality"]
-    },
-    {
-      "company": "Confindustria",
-      "course": "Public Affairs & Digital Advocacy",
-      "description": "Analyzed the September 21, 2021 decree-law on COVID-19 swab cost responsibility from a public affairs perspective, proposing digital advocacy strategies.",
-      "tags": ["Public Affairs", "Digital Advocacy", "Policy Analysis"]
-    }
-  ]
+  "en": {
+    "intro": "Selected projects developed during the M.Sc in Strategic Communication at IULM University, combining research, strategy, and communication across industries.",
+    "items": [
+      {
+        "company": "Dior",
+        "course": "Fashion Communication",
+        "description": "Analyzed the current Zeitgeist to formulate thoughtful suggestions for Dior's upcoming collection, covering fashion cycle analysis, market segmentation, and communication strategy.",
+        "tags": ["Fashion", "Communication Strategy", "Market Segmentation"]
+      },
+      {
+        "company": "Bosch",
+        "course": "Strategic Communication",
+        "description": "Conducted an extensive analysis of the employer branding landscape in the tech industry, comparing competitive strategies and identifying best practices.",
+        "tags": ["Employer Branding", "Tech Industry", "Strategic Analysis"]
+      },
+      {
+        "company": "ENEL",
+        "course": "Digital Communication",
+        "description": "Formulated a comprehensive set of innovative ideas and suggestions to craft an impactful communication strategy promoting green energy adoption.",
+        "tags": ["Digital Strategy", "Green Energy", "Sustainability"]
+      },
+      {
+        "company": "Prime Minister – GOGROUP",
+        "course": "Brand Identity",
+        "description": "Developed a cultural positioning strategy and crafted compelling social media content for a political organization supporting young women.",
+        "tags": ["Brand Identity", "Social Media", "Cultural Positioning"]
+      },
+      {
+        "company": "Tod's",
+        "course": "Strategy & Management",
+        "description": "Performed a comprehensive evaluation of Tod's corporate performance and formulated an astute growth strategy aligned with brand heritage.",
+        "tags": ["Corporate Strategy", "Luxury Brand", "Growth Planning"]
+      },
+      {
+        "company": "Alexa (Amazon)",
+        "course": "Ethnography & Netnography",
+        "description": "Investigated how Italian Generation X engages and interacts with Alexa, using digital ethnographic methods to uncover behavioral patterns.",
+        "tags": ["Netnography", "Consumer Behavior", "Voice Technology"]
+      },
+      {
+        "company": "COPLACE App",
+        "course": "Innovation",
+        "description": "Designed a co-working space discovery and booking app concept enabling flexible, on-demand workplace access for hybrid workers.",
+        "tags": ["App Design", "Innovation", "Future of Work"]
+      },
+      {
+        "company": "ISADORE GROUP",
+        "course": "Neuromanagement",
+        "description": "Designed and ran an experiment measuring the impact of decentralized management on productivity and motivation using EEG, ECG, Skin Conductance, and Face Reader tools.",
+        "tags": ["Neuromanagement", "EEG/ECG", "Organizational Behavior"]
+      },
+      {
+        "company": "Four Seasons Hotel",
+        "course": "Organizational Behavior",
+        "description": "Analyzed how Four Seasons Hotel strategically harnesses organizational culture elements to deliver consistent luxury service at scale.",
+        "tags": ["Organizational Culture", "Luxury Hospitality", "Leadership"]
+      },
+      {
+        "company": "Campari Group",
+        "course": "Internal Communication",
+        "description": "Designed a strategic plan for Campari Group to amplify employee engagement within a hybrid work setup, focusing on internal communication channels and content.",
+        "tags": ["Internal Comms", "Employee Engagement", "Hybrid Work"]
+      },
+      {
+        "company": "Lines Group",
+        "course": "Corporate Social Responsibility",
+        "description": "Developed a comprehensive sustainability project and devised communication strategies aimed at empowering women and advancing gender equality.",
+        "tags": ["CSR", "Sustainability", "Gender Equality"]
+      },
+      {
+        "company": "Confindustria",
+        "course": "Public Affairs & Digital Advocacy",
+        "description": "Analyzed the September 21, 2021 decree-law on COVID-19 swab cost responsibility from a public affairs perspective, proposing digital advocacy strategies.",
+        "tags": ["Public Affairs", "Digital Advocacy", "Policy Analysis"]
+      }
+    ]
+  },
+  "it": {
+    "intro": "Progetti selezionati sviluppati durante la Laurea Magistrale in Comunicazione Strategica presso l'Università IULM, combinando ricerca, strategia e comunicazione in diversi settori.",
+    "items": [
+      {
+        "company": "Dior",
+        "course": "Comunicazione della Moda",
+        "description": "Analisi dello Zeitgeist attuale per formulare suggerimenti mirati per la prossima collezione Dior, coprendo analisi del ciclo della moda, segmentazione del mercato e strategia di comunicazione.",
+        "tags": ["Moda", "Strategia di Comunicazione", "Segmentazione del Mercato"]
+      },
+      {
+        "company": "Bosch",
+        "course": "Comunicazione Strategica",
+        "description": "Analisi approfondita del panorama dell'employer branding nel settore tecnologico, confrontando strategie competitive e identificando best practice.",
+        "tags": ["Employer Branding", "Settore Tech", "Analisi Strategica"]
+      },
+      {
+        "company": "ENEL",
+        "course": "Comunicazione Digitale",
+        "description": "Formulazione di un insieme di idee e suggerimenti innovativi per costruire una strategia di comunicazione efficace volta a promuovere l'adozione di energia verde.",
+        "tags": ["Strategia Digitale", "Energia Verde", "Sostenibilità"]
+      },
+      {
+        "company": "Prime Minister – GOGROUP",
+        "course": "Brand Identity",
+        "description": "Sviluppo di una strategia di posizionamento culturale e creazione di contenuti social media per un'organizzazione politica a sostegno delle giovani donne.",
+        "tags": ["Brand Identity", "Social Media", "Posizionamento Culturale"]
+      },
+      {
+        "company": "Tod's",
+        "course": "Strategia & Management",
+        "description": "Valutazione completa della performance aziendale di Tod's e formulazione di una strategia di crescita allineata al patrimonio del brand.",
+        "tags": ["Strategia Aziendale", "Brand di Lusso", "Pianificazione della Crescita"]
+      },
+      {
+        "company": "Alexa (Amazon)",
+        "course": "Etnografia & Netnografia",
+        "description": "Indagine su come la Generazione X italiana interagisce con Alexa, utilizzando metodi etnografici digitali per scoprire pattern comportamentali.",
+        "tags": ["Netnografia", "Comportamento del Consumatore", "Tecnologia Vocale"]
+      },
+      {
+        "company": "COPLACE App",
+        "course": "Innovazione",
+        "description": "Progettazione di un'app per la scoperta e prenotazione di spazi di co-working, per un accesso flessibile e on-demand per i lavoratori ibridi.",
+        "tags": ["App Design", "Innovazione", "Futuro del Lavoro"]
+      },
+      {
+        "company": "ISADORE GROUP",
+        "course": "Neuromanagement",
+        "description": "Progettazione e conduzione di un esperimento per misurare l'impatto della gestione decentralizzata su produttività e motivazione utilizzando EEG, ECG, conduttanza cutanea e Face Reader.",
+        "tags": ["Neuromanagement", "EEG/ECG", "Comportamento Organizzativo"]
+      },
+      {
+        "company": "Four Seasons Hotel",
+        "course": "Comportamento Organizzativo",
+        "description": "Analisi di come il Four Seasons Hotel sfrutta strategicamente la cultura organizzativa per offrire un servizio di lusso costante su larga scala.",
+        "tags": ["Cultura Organizzativa", "Ospitalità di Lusso", "Leadership"]
+      },
+      {
+        "company": "Campari Group",
+        "course": "Comunicazione Interna",
+        "description": "Progettazione di un piano strategico per Campari Group per amplificare il coinvolgimento dei dipendenti in un contesto di lavoro ibrido, con focus su canali e contenuti di comunicazione interna.",
+        "tags": ["Comunicazione Interna", "Coinvolgimento Dipendenti", "Lavoro Ibrido"]
+      },
+      {
+        "company": "Lines Group",
+        "course": "Responsabilità Sociale d'Impresa",
+        "description": "Sviluppo di un progetto di sostenibilità e strategie di comunicazione per l'empowerment femminile e l'avanzamento della parità di genere.",
+        "tags": ["RSI", "Sostenibilità", "Parità di Genere"]
+      },
+      {
+        "company": "Confindustria",
+        "course": "Public Affairs & Digital Advocacy",
+        "description": "Analisi del decreto-legge del 21 settembre 2021 sulla responsabilità dei costi dei tamponi COVID-19 da una prospettiva di public affairs, con proposte di strategie di digital advocacy.",
+        "tags": ["Public Affairs", "Digital Advocacy", "Analisi delle Politiche"]
+      }
+    ]
+  }
 }

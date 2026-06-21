@@ -6,7 +6,7 @@ const { lang } = Astro.props;
 const tr = t(lang);
 const ab = tr.about;
 ---
-<section id="about" class="section">
+<section id="about" class="section section-spacious">
   <div class="container">
     <div class="about-grid">
       <div class="about-left fade-in">
@@ -72,11 +72,6 @@ const ab = tr.about;
   border-radius: var(--radius);
   padding: 1.5rem;
   box-shadow: var(--shadow-sm);
-  transition: transform 0.2s, box-shadow 0.2s, opacity 0.6s, transform 0.6s;
-}
-.metric-card:hover {
-  transform: translateY(-3px);
-  box-shadow: var(--shadow);
 }
 
 .metric-number {

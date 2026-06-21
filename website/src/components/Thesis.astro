@@ -13,21 +13,23 @@ const theses = thesesData.items;
     <p class="section-label">{tr.thesis.label}</p>
     <h2 class="section-title">{tr.thesis.title}</h2>
 
-    <div class="thesis-grid">
+    <div class="thesis-stack">
       {theses.map((t, i) => (
-        <div class="thesis-card card fade-in" style={`transition-delay:${i * 0.15}s`}>
-          <div class="thesis-meta">
-            <span class="thesis-level">{t.level}</span>
-            <span class="thesis-year">{t.year}</span>
-          </div>
-          <h3 class="thesis-title">"{t.title}"</h3>
-          <p class="thesis-institution">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-            {t.institution} · {t.degree}
-          </p>
-          <p class="thesis-abstract">{t.abstract}</p>
-          <div class="thesis-keywords">
-            {t.keywords.map(k => <span class="tag">{k}</span>)}
+        <div class="thesis-item fade-in" style={`transition-delay:${i * 0.15}s`}>
+          <div class="thesis-quote-bar"></div>
+          <div class="thesis-body">
+            <div class="thesis-meta">
+              <span class="thesis-level">{t.level}</span>
+              <span class="thesis-year">{t.year}</span>
+              <span class="thesis-institution">
+                {t.institution} · {t.degree}
+              </span>
+            </div>
+            <blockquote class="thesis-title">{t.title}</blockquote>
+            <p class="thesis-abstract">{t.abstract}</p>
+            <div class="thesis-keywords">
+              {t.keywords.map(k => <span class="tag">{k}</span>)}
+            </div>
           </div>
         </div>
       ))}
@@ -38,23 +40,35 @@ const theses = thesesData.items;
 <style>
 #thesis { background: var(--violet-pale); }
 
-.thesis-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.75rem;
-}
-
-.thesis-card {
+.thesis-stack {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  border-top: 3px solid var(--violet);
+  gap: 2.5rem;
+}
+
+.thesis-item {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.thesis-quote-bar {
+  width: 3px;
+  flex-shrink: 0;
+  border-radius: 2px;
+  background: linear-gradient(to bottom, var(--violet), var(--violet-light));
+}
+
+.thesis-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
 }
 
 .thesis-meta {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
 }
 
 .thesis-level {
@@ -62,42 +76,38 @@ const theses = thesesData.items;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: var(--violet);
+  color: var(--white);
+  background: var(--violet);
+  padding: 0.15rem 0.55rem;
+  border-radius: 0.5rem;
 }
 
 .thesis-year {
   font-size: 0.8rem;
   font-weight: 600;
   color: var(--muted);
-  background: var(--border);
-  padding: 0.15rem 0.55rem;
-  border-radius: 0.5rem;
+}
+
+.thesis-institution {
+  font-size: 0.82rem;
+  color: var(--muted);
+  font-weight: 500;
 }
 
 .thesis-title {
   font-family: var(--font-display);
-  font-size: 1.05rem;
+  font-size: 1.25rem;
   font-weight: 600;
   color: var(--dark);
   line-height: 1.4;
   font-style: italic;
 }
 
-.thesis-institution {
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-  font-size: 0.82rem;
-  color: var(--muted);
-  font-weight: 500;
-}
-.thesis-institution svg { flex-shrink: 0; }
-
 .thesis-abstract {
-  font-size: 0.88rem;
+  font-size: 0.9rem;
   color: var(--body);
-  line-height: 1.65;
-  flex: 1;
+  line-height: 1.7;
+  max-width: 700px;
 }
 
 .thesis-keywords {
@@ -106,7 +116,7 @@ const theses = thesesData.items;
   gap: 0.4rem;
 }
 
-@media (max-width: 768px) {
-  .thesis-grid { grid-template-columns: 1fr; }
+@media (max-width: 600px) {
+  .thesis-item { gap: 1rem; }
 }
 </style>

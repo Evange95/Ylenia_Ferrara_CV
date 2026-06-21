@@ -2,7 +2,7 @@ import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 import cloudflare from '@astrojs/cloudflare';
 
-const isProd = process.argv.includes('build');
+const isProd = process.argv.includes('build') || process.argv.includes('preview');
 
 const integrations = [sitemap({
   i18n: {

@@ -3,6 +3,7 @@ import aboutData from '../content/about.json';
 import experienceData from '../content/experience.json';
 import educationData from '../content/education.json';
 import skillsData from '../content/skills.json';
+import projectsData from '../content/projects.json';
 import contactData from '../content/contact.json';
 
 export type Lang = 'en' | 'it';
@@ -15,6 +16,7 @@ function build(lang: Lang) {
     experience: (experienceData as any)[lang],
     skills: (skillsData as any)[lang],
     education: (educationData as any)[lang],
+    projectsData: (projectsData as any)[lang],
     contact: (contactData as any)[lang],
   };
 }

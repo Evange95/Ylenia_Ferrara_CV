@@ -21,7 +21,7 @@ const issuerColor: Record<string, string> = {
   'Various':          '#7B6FA0',
 };
 ---
-<section id="certifications" class="section">
+<section id="certifications" class="section section-compact">
   <div class="container">
     <p class="section-label">{tr.certifications.label}</p>
     <h2 class="section-title">{tr.certifications.title}</h2>
@@ -99,11 +99,6 @@ const issuerColor: Record<string, string> = {
   border-radius: 2rem;
   padding: 0.35rem 0.85rem;
   box-shadow: var(--shadow-sm);
-  transition: box-shadow 0.2s, transform 0.2s;
-}
-.cert-pill:hover {
-  box-shadow: var(--shadow);
-  transform: translateY(-1px);
 }
 
 .cert-dot {

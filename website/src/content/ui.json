@@ -6,6 +6,7 @@
       "about": "About",
       "experience": "Experience",
       "skills": "Skills",
+      "education": "Education",
       "projects": "Projects",
       "writing": "Writing",
       "contact": "Contact",
@@ -21,7 +22,7 @@
     "certifications": { "label": "Credentials", "title": "Certifications" },
     "projects": { "label": "Academic & Professional", "title": "Project Works" },
     "thesis": { "label": "Academic Research", "title": "Final Dissertations" },
-    "writing": { "label": "Personal Writing", "title": "On Medium" }
+    "writing": { "label": "Personal Writing", "title": "On Medium", "intro": "Beyond professional work, I write about travel, self-discovery, and life abroad.", "readOn": "Read on Medium", "viewAll": "View all on Medium" }
   },
   "it": {
     "cvFile": "cv_it.pdf",
@@ -30,6 +31,7 @@
       "about": "Chi sono",
       "experience": "Esperienza",
       "skills": "Competenze",
+      "education": "Formazione",
       "projects": "Progetti",
       "writing": "Articoli",
       "contact": "Contatti",
@@ -45,6 +47,6 @@
     "certifications": { "label": "Credenziali", "title": "Certificazioni" },
     "projects": { "label": "Accademico & Professionale", "title": "Project Works" },
     "thesis": { "label": "Ricerca Accademica", "title": "Tesi di Laurea" },
-    "writing": { "label": "Scrittura Personale", "title": "Su Medium" }
+    "writing": { "label": "Scrittura Personale", "title": "Su Medium", "intro": "Oltre al lavoro professionale, scrivo di viaggi, scoperta di sé e vita all'estero.", "readOn": "Leggi su Medium", "viewAll": "Vedi tutti su Medium" }
   }
 }

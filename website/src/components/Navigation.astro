@@ -11,6 +11,7 @@ const links = [
   { href: '#about',      label: tr.nav.about },
   { href: '#experience', label: tr.nav.experience },
   { href: '#skills',     label: tr.nav.skills },
+  { href: '#education',  label: tr.nav.education },
   { href: '#projects',   label: tr.nav.projects },
   { href: '#writing',    label: tr.nav.writing },
   { href: '#contact',    label: tr.nav.contact },
@@ -22,7 +23,12 @@ const links = [
     <ul class="nav-links">
       {links.map(l => <li><a href={l.href}>{l.label}</a></li>)}
     </ul>
-    <a class="lang-switch" href={altHref}>{tr.nav.switchLabel}</a>
+    <div class="lang-switch">
+      {lang === 'en'
+        ? <><span class="lang-active">EN</span><a href={altHref} class="lang-alt">IT</a></>
+        : <><a href={altHref} class="lang-alt">EN</a><span class="lang-active">IT</span></>
+      }
+    </div>
     <a class="btn btn-primary nav-cta" href={`${base}${tr.cvFile}`} download>{tr.nav.download}</a>
     <button class="nav-burger" aria-label="Menu" onclick="this.closest('nav').classList.toggle('open')">
       <span></span><span></span><span></span>
@@ -36,7 +42,12 @@ const links = [
         </li>
       ))}
     </ul>
-    <a class="lang-switch-drawer" href={altHref}>{tr.nav.switchLabel}</a>
+    <div class="lang-switch-drawer">
+      {lang === 'en'
+        ? <><span class="lang-active">EN</span><a href={altHref} class="lang-alt">IT</a></>
+        : <><a href={altHref} class="lang-alt">EN</a><span class="lang-active">IT</span></>
+      }
+    </div>
   </div>
 </nav>
 
@@ -80,17 +91,29 @@ nav {
 .nav-links a:hover { color: var(--violet); }
 
 .lang-switch {
+  display: flex;
+  align-items: center;
   font-size: 0.78rem;
   font-weight: 700;
   letter-spacing: 0.06em;
-  color: var(--muted);
   border: 1px solid var(--border);
   border-radius: 1rem;
-  padding: 0.3rem 0.65rem;
-  transition: color 0.2s, border-color 0.2s;
+  overflow: hidden;
   flex-shrink: 0;
 }
-.lang-switch:hover { color: var(--violet); border-color: var(--violet); }
+
+.lang-active {
+  padding: 0.3rem 0.55rem;
+  background: var(--violet);
+  color: var(--white);
+}
+
+.lang-alt {
+  padding: 0.3rem 0.55rem;
+  color: var(--muted);
+  transition: color 0.2s, background 0.2s;
+}
+.lang-alt:hover { color: var(--violet); background: var(--violet-pale); }
 
 .nav-cta { font-size: 0.85rem; padding: 0.55rem 1.25rem; flex-shrink: 0; }
 
@@ -128,16 +151,27 @@ nav {
 }
 
 .lang-switch-drawer {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
   margin-top: 1.25rem;
   font-size: 0.82rem;
   font-weight: 700;
   letter-spacing: 0.06em;
-  color: var(--violet);
   border: 1px solid var(--violet);
   border-radius: 1rem;
-  padding: 0.35rem 0.85rem;
+  overflow: hidden;
 }
+.lang-switch-drawer .lang-active {
+  padding: 0.35rem 0.65rem;
+  background: var(--violet);
+  color: var(--white);
+}
+.lang-switch-drawer .lang-alt {
+  padding: 0.35rem 0.65rem;
+  color: var(--violet);
+  transition: background 0.2s;
+}
+.lang-switch-drawer .lang-alt:hover { background: var(--violet-pale); }
 
 @media (max-width: 900px) {
   .nav-links, .nav-cta, .lang-switch { display: none; }

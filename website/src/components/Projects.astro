@@ -1,21 +1,20 @@
 ---
 import { t, type Lang } from '../i18n/index.ts';
-import projectsData from '../content/projects.json';
 
 interface Props { lang: Lang; }
 const { lang } = Astro.props;
 const tr = t(lang);
 
-const projects = projectsData.items;
+const projects = tr.projectsData;
 ---
 <section id="projects" class="section">
   <div class="container">
     <p class="section-label">{tr.projects.label}</p>
     <h2 class="section-title">{tr.projects.title}</h2>
-    <p class="projects-intro">Selected projects developed during the M.Sc in Strategic Communication at IULM University, combining research, strategy, and communication across industries.</p>
+    <p class="projects-intro">{projects.intro}</p>
 
     <div class="projects-grid">
-      {projects.map((p, i) => (
+      {projects.items.map((p: { company: string; course: string; description: string; tags: string[] }, i: number) => (
         <div class="project-card card fade-in" style={`transition-delay:${(i % 4) * 0.08}s`}>
           <div class="project-header">
             <span class="project-course">{p.course}</span>
@@ -23,7 +22,7 @@ const projects = projectsData.items;
           <h3 class="project-company">{p.company}</h3>
           <p class="project-description">{p.description}</p>
           <div class="project-tags">
-            {p.tags.map(t => <span class="tag">{t}</span>)}
+            {p.tags.map((tag: string) => <span class="tag">{tag}</span>)}
           </div>
         </div>
       ))}
@@ -44,8 +43,8 @@ const projects = projectsData.items;
 
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1.1rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
 }
 
 .project-card {
@@ -80,14 +79,10 @@ const projects = projectsData.items;
 }
 
 .project-description {
-  font-size: 0.82rem;
+  font-size: 0.85rem;
   color: var(--muted);
-  line-height: 1.55;
+  line-height: 1.6;
   flex: 1;
-  display: -webkit-box;
-  -webkit-line-clamp: 4;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
 }
 
 .project-tags {
@@ -101,9 +96,6 @@ const projects = projectsData.items;
   padding: 0.15rem 0.55rem;
 }
 
-@media (max-width: 1024px) {
-  .projects-grid { grid-template-columns: repeat(3, 1fr); }
-}
 @media (max-width: 768px) {
   .projects-grid { grid-template-columns: 1fr 1fr; }
 }

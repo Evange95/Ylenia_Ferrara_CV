@@ -18,10 +18,12 @@ const ex = tr.experience;
             <div class="marker-dot"></div>
           </div>
           <div class="timeline-content card">
-            {job.current && <span class="current-badge">{ex.current}</span>}
             <div class="job-header">
               <h3 class="job-title">{job.title}</h3>
-              <span class="job-period">{job.period}</span>
+              <div class="job-header-right">
+                {job.current && <span class="current-badge">{ex.current}</span>}
+                <span class="job-period">{job.period}</span>
+              </div>
             </div>
             <p class="job-meta">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
@@ -93,9 +95,14 @@ const ex = tr.experience;
   position: relative;
 }
 
+.job-header-right {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
 .current-badge {
-  position: absolute;
-  top: 1.2rem; right: 1.2rem;
   background: var(--violet);
   color: var(--white);
   font-size: 0.7rem;
@@ -104,6 +111,7 @@ const ex = tr.experience;
   text-transform: uppercase;
   padding: 0.2rem 0.65rem;
   border-radius: 1rem;
+  white-space: nowrap;
 }
 
 .current .timeline-content {

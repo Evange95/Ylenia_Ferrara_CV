@@ -12,22 +12,21 @@ const articles = writingData.articles;
   <div class="container">
     <p class="section-label">{tr.writing.label}</p>
     <h2 class="section-title">{tr.writing.title}</h2>
-    <p class="writing-intro">Beyond professional work, I write about travel, self-discovery, and life abroad.</p>
+    <p class="writing-intro">{tr.writing.intro}</p>
 
     <div class="articles-grid">
       {articles.map((a, i) => (
         <a
-          class="article-card card fade-in"
+          class="article-card card card-interactive fade-in"
           href={a.url}
           target="_blank"
           rel="noopener noreferrer"
           style={`transition-delay:${i * 0.1}s`}
         >
-          <div class="article-number">0{i + 1}</div>
           <h3 class="article-title">{a.title}</h3>
           <p class="article-preview">{a.preview}</p>
           <span class="article-link">
-            Read on Medium
+            {tr.writing.readOn}
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
           </span>
         </a>
@@ -37,7 +36,7 @@ const articles = writingData.articles;
     <div class="writing-cta fade-in">
       <a href="https://medium.com/@yleniaferrara" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M13.54 12a6.8 6.8 0 0 1-6.77 6.82A6.8 6.8 0 0 1 0 12a6.8 6.8 0 0 1 6.77-6.82A6.8 6.8 0 0 1 13.54 12zm7.42 0c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg>
-        View all on Medium
+        {tr.writing.viewAll}
       </a>
     </div>
   </div>
@@ -66,14 +65,6 @@ const articles = writingData.articles;
   gap: 0.75rem;
   text-decoration: none;
   cursor: pointer;
-}
-
-.article-number {
-  font-family: var(--font-display);
-  font-size: 2rem;
-  font-weight: 700;
-  color: var(--violet-light);
-  line-height: 1;
 }
 
 .article-title {
