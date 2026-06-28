@@ -12,11 +12,34 @@ jobs:
       - uses: actions/checkout@v4
 
       # ── Build LaTeX PDFs ──────────────────────────────────────────────
-      - name: Install TeX Live (XeLaTeX + fonts)
-        uses: awalsh128/cache-apt-pkgs-action@v1
+      - name: Cache TeX Live
+        id: cache-texlive
+        uses: actions/cache@v4
         with:
-          packages: texlive-xetex texlive-fonts-recommended texlive-fonts-extra texlive-latex-extra fonts-roboto fonts-font-awesome
-          version: 1.0
+          path: ~/texlive-snapshot.tar.zst
+          key: texlive-${{ runner.os }}-v1
+
+      - name: Restore TeX Live from cache
+        if: steps.cache-texlive.outputs.cache-hit == 'true'
+        run: sudo tar -I zstd -xf ~/texlive-snapshot.tar.zst -C /
+
+      - name: Install TeX Live (XeLaTeX + fonts)
+        if: steps.cache-texlive.outputs.cache-hit != 'true'
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends \
+            texlive-xetex \
+            texlive-fonts-recommended \
+            texlive-fonts-extra \
+            texlive-latex-extra \
+            fonts-roboto \
+            fonts-font-awesome
+          tar -I zstd -cf ~/texlive-snapshot.tar.zst \
+            -C / \
+            usr/bin/xelatex usr/bin/xdvipdfmx \
+            usr/share/texlive usr/share/texmf \
+            usr/share/fonts/truetype/roboto \
+            usr/share/fonts/opentype/font-awesome
 
       - name: Build CVs
         working-directory: latex
