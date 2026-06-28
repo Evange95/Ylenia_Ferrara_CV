@@ -68,20 +68,22 @@ const issuerColor: Record<string, string> = {
   font-size: 1rem;
   font-weight: 700;
   color: var(--violet);
-  padding-top: 0.35rem;
   text-align: right;
-  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  min-height: 2rem;
 }
 .year-label::after {
   content: '';
-  position: absolute;
-  right: -1rem;
-  top: 0.6rem;
+  flex-shrink: 0;
   width: 8px; height: 8px;
   border-radius: 50%;
   background: var(--violet);
   border: 2px solid var(--white);
   box-shadow: 0 0 0 2px var(--violet);
+  margin-right: -1.25rem;
 }
 
 .year-certs {
