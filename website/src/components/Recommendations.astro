@@ -1,0 +1,289 @@
+---
+import recsData from '../content/recommendations.json';
+import type { Lang } from '../i18n/index.ts';
+
+interface Props { lang: Lang; }
+const { lang } = Astro.props;
+
+const section = (recsData as any)[lang];
+const items = recsData.items;
+---
+<section id="recommendations" class="section section-compact">
+  <div class="container">
+    <p class="section-label">{section.label}</p>
+    <h2 class="section-title">{section.title}</h2>
+  </div>
+
+  <div class="recs-stage">
+    <div class="recs-arrow-wrap">
+      <button class="recs-arrow recs-prev" aria-label="Previous">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M13 4L7 10L13 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+
+    <div class="recs-window">
+      <div class="recs-track">
+        {items.map((r) => (
+          <article class="rec-slide">
+            <div class="rec-quote">
+              <svg class="rec-icon" width="32" height="32" viewBox="0 0 24 24" fill="currentColor" opacity="0.15"><path d="M4.583 17.321C3.553 16.227 3 15 3 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179zm10 0C13.553 16.227 13 15 13 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179z"/></svg>
+              <blockquote class="rec-text">{r.text}</blockquote>
+            </div>
+            <footer class="rec-author">
+              <div class="rec-avatar">{r.name.split(' ').map((w: string) => w[0]).join('')}</div>
+              <div class="rec-info">
+                <span class="rec-name">{r.name}</span>
+                <span class="rec-role">{r.role}</span>
+                <span class="rec-company">{r.company}</span>
+              </div>
+            </footer>
+          </article>
+        ))}
+      </div>
+    </div>
+
+    <div class="recs-arrow-wrap">
+      <button class="recs-arrow recs-next" aria-label="Next">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M7 4L13 10L7 16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="recs-dots">
+    {items.map((_, i) => (
+      <button class:list={['dot', { active: i === 0 }]} aria-label={`Recommendation ${i + 1}`} data-index={i} />
+    ))}
+  </div>
+</section>
+
+<style>
+#recommendations {
+  background: var(--violet-pale);
+  overflow: hidden;
+}
+
+.recs-stage {
+  display: flex;
+  align-items: flex-start;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  gap: 1rem;
+}
+
+.recs-arrow-wrap {
+  padding-top: 6rem;
+}
+
+.recs-window {
+  flex: 1;
+  overflow: hidden;
+}
+
+.recs-track {
+  display: flex;
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.rec-slide {
+  flex: 0 0 100%;
+  min-width: 0;
+  padding: 0 0.75rem;
+  box-sizing: border-box;
+}
+
+.rec-quote {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2rem 2rem 2.5rem;
+  box-shadow: var(--shadow-sm);
+  position: relative;
+}
+.rec-quote::after {
+  content: '\201D';
+  position: absolute;
+  bottom: 0.25rem;
+  right: 1.5rem;
+  font-family: var(--font-display);
+  font-size: 3rem;
+  line-height: 1;
+  color: var(--violet);
+  opacity: 0.15;
+}
+
+.rec-icon {
+  color: var(--violet);
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.rec-text {
+  font-size: 0.92rem;
+  font-style: italic;
+  color: var(--body);
+  line-height: 1.8;
+  margin: 0;
+}
+
+.rec-author {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 1.25rem 0.5rem 0;
+}
+
+.rec-avatar {
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 50%;
+  background: var(--violet);
+  color: var(--white);
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  letter-spacing: 0.02em;
+}
+
+.rec-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  min-width: 0;
+}
+
+.rec-name {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--dark);
+}
+
+.rec-role {
+  font-size: 0.78rem;
+  color: var(--muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.rec-company {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--violet-dark);
+}
+
+.recs-arrow {
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 50%;
+  border: 1.5px solid var(--border);
+  background: var(--white);
+  color: var(--muted);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.2s;
+  box-shadow: var(--shadow-sm);
+}
+.recs-arrow:hover {
+  border-color: var(--violet);
+  color: var(--violet);
+  box-shadow: var(--shadow);
+}
+
+.recs-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+}
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: none;
+  padding: 0;
+  background: var(--border);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.dot.active {
+  background: var(--violet);
+  width: 24px;
+  border-radius: 4px;
+}
+
+@media (max-width: 640px) {
+  .recs-stage { gap: 0.5rem; padding: 0 0.5rem; }
+  .recs-arrow { width: 2.25rem; height: 2.25rem; }
+  .rec-quote { padding: 1.5rem 1.25rem 1.25rem; }
+}
+</style>
+
+<script>
+document.querySelectorAll('#recommendations').forEach(section => {
+  const track = section.querySelector('.recs-track') as HTMLElement;
+  const slides = Array.from(track.querySelectorAll('.rec-slide'));
+  const dots = section.querySelectorAll('.dot');
+  const prevBtn = section.querySelector('.recs-prev') as HTMLElement;
+  const nextBtn = section.querySelector('.recs-next') as HTMLElement;
+  const count = slides.length;
+  let pos = 1;
+  let moving = false;
+
+  const firstClone = slides[0].cloneNode(true) as HTMLElement;
+  const lastClone = slides[count - 1].cloneNode(true) as HTMLElement;
+  track.appendChild(firstClone);
+  track.insertBefore(lastClone, slides[0]);
+
+  track.style.transform = `translateX(-${pos * 100}%)`;
+
+  function updateDots() {
+    const real = ((pos - 1) % count + count) % count;
+    dots.forEach((d, i) => d.classList.toggle('active', i === real));
+  }
+
+  function goTo(idx: number) {
+    if (moving) return;
+    moving = true;
+    pos = idx;
+    track.style.transition = 'transform 0.5s cubic-bezier(0.22, 1, 0.36, 1)';
+    track.style.transform = `translateX(-${pos * 100}%)`;
+    updateDots();
+  }
+
+  track.addEventListener('transitionend', () => {
+    moving = false;
+    if (pos === 0) {
+      track.style.transition = 'none';
+      pos = count;
+      track.style.transform = `translateX(-${pos * 100}%)`;
+    } else if (pos === count + 1) {
+      track.style.transition = 'none';
+      pos = 1;
+      track.style.transform = `translateX(-${pos * 100}%)`;
+    }
+  });
+
+  prevBtn.addEventListener('click', () => goTo(pos - 1));
+  nextBtn.addEventListener('click', () => goTo(pos + 1));
+  dots.forEach(d => d.addEventListener('click', () => {
+    const target = Number((d as HTMLElement).dataset.index) + 1;
+    goTo(target);
+  }));
+
+  let startX = 0;
+  track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
+  track.addEventListener('touchend', e => {
+    const diff = startX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 50) goTo(pos + (diff > 0 ? 1 : -1));
+  });
+});
+</script>

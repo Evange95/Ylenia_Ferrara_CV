@@ -1,0 +1,68 @@
+{
+  "en": {
+    "label": "Testimonials",
+    "title": "Recommendations"
+  },
+  "it": {
+    "label": "Testimonianze",
+    "title": "Raccomandazioni"
+  },
+  "items": [
+    {
+      "name": "Benedetta Nicastro",
+      "role": "Head of Communications",
+      "company": "Roche",
+      "relationship": "Managed Ylenia directly",
+      "text": "I had the pleasure to work with Ylenia during her time at Roche, starting as an intern and growing in her role. She is an outstanding professional and a great asset for any organization that will hire her. I was surprised by her focus, accountability and sharpness despite her young age. I stand behind her enthusiasm and honesty, both traits make her a passionate team member. She achieved a lot over the year at Roche from internal events to the migration of the corporate website to the development of the content strategy for our social and digital media. I truly hope that our paths may cross again in the future."
+    },
+    {
+      "name": "Silvia Zucca",
+      "role": "Communication Manager",
+      "company": "Roche Diagnostics",
+      "relationship": "Senior to Ylenia",
+      "text": "Great accountability despite her juniority: this is the characteristic of Ylenia that immediately struck me when I started working with her. She approaches both \"routine\" work and new projects with proactivity. She has always demonstrated focus on the objectives to be achieved and good organizational skills. Her openness to discuss, her availability towards others and her curiosity, together with strong relational skills, make Ylenia a person who is always a pleasure to work with!"
+    },
+    {
+      "name": "Valentina Orlandi",
+      "role": "Talent Acquisition Partner",
+      "company": "Roche",
+      "relationship": "Worked on different teams",
+      "text": "I have had the opportunity to work with Ylenia on some internal communication projects and her passion, attention and commitment to the goals as well as to the people involved were always amazing. She is smart, dedicated and a fast-learner."
+    },
+    {
+      "name": "Mara Varinelli",
+      "role": "Talent Acquisition | Learning & Development | HR Specialist",
+      "company": "Roche",
+      "relationship": "Worked on different teams",
+      "text": "Ylenia è una collega formidabile con cui è un piacere collaborare, ma soprattutto una professionista molto competente. Propone contenuti e progetti molto interessanti e innovativi, che sanno intercettare l'attenzione dell'audience e aumentare l'engagement interno. In sintesi, sa pensare strategicamente e soprattutto è capace di realizzare questo impatto."
+    },
+    {
+      "name": "Beatrice Cerioli",
+      "role": "Corporate Communication",
+      "company": "Roche",
+      "relationship": "Worked on different teams",
+      "text": "Three adjectives I would use to describe Ylenia: proactive, supportive and collaborative. It is a pleasure to work with her: she is a good listener, always open to learn and start new projects. Despite her juniority, you can always learn from her thanks to her ability to share her skills, competencies and knowledge."
+    },
+    {
+      "name": "Camilla Cirlincione",
+      "role": "Benefit Specialist — People & Culture",
+      "company": "Roche",
+      "relationship": "Worked on different teams",
+      "text": "Ylenia is a valuable professional and colleague, working with her is stimulating thanks to her great collaboration, teamworking and proactivity. She loves her job and faces any circumstance with positive energy and a great desire to learn and grow. Thank you for working with us along these months and I wish you all the best!"
+    },
+    {
+      "name": "Paolo Vece",
+      "role": "Junior Controller",
+      "company": "Roche",
+      "relationship": "Worked on different teams",
+      "text": "Ylenia è una ragazza molto preparata a qualsiasi richiesta, capace di impegnarsi sempre nel lavoro e di reinventarsi. Ha dimostrato grande serietà e responsabilità nel gestire la sua posizione, ma anche grande resilienza nel lavorare in team. Ylenia ha portato sempre grande gioia in ufficio con il suo sorriso."
+    },
+    {
+      "name": "Paola Vicari",
+      "role": "Medical Training Partner and Healthcare Executive Assistant",
+      "company": "Roche",
+      "relationship": "Worked on different teams",
+      "text": "Persona collaborativa, entusiasta, veloce e anche molto carina a livello umano e personale, ci si collabora benissimo!"
+    }
+  ]
+}
