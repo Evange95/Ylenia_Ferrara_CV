@@ -31,10 +31,12 @@ const issuerColor: Record<string, string> = {
         <div class="cert-year-group fade-in" style={`transition-delay:${gi * 0.08}s`}>
           <div class="year-label">{group.year}</div>
           <div class="year-certs">
-            {group.certs.map(c => (
+            {group.certs.map((c: { issuer: string; name: string; pdf?: string }) => (
               <div class="cert-pill">
                 <span class="cert-dot" style={`background:${issuerColor[c.issuer] ?? 'var(--violet)'}`}></span>
-                <span class="cert-name">{c.name}</span>
+                {c.pdf
+                  ? <a class="cert-name" href={c.pdf} target="_blank" rel="noopener noreferrer">{c.name}</a>
+                  : <span class="cert-name">{c.name}</span>}
                 <span class="cert-issuer-label">{c.issuer}</span>
               </div>
             ))}
@@ -112,6 +114,15 @@ const issuerColor: Record<string, string> = {
   font-size: 0.85rem;
   font-weight: 500;
   color: var(--dark);
+  text-decoration: none;
+}
+a.cert-name {
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s, color 0.2s;
+}
+a.cert-name:hover {
+  color: var(--violet);
+  border-color: var(--violet);
 }
 
 .cert-issuer-label {

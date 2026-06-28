@@ -3,52 +3,51 @@
     {
       "year": "2025",
       "certs": [
-        { "issuer": "LinkedIn", "name": "Marketing Insider Badge" },
-        { "issuer": "LinkedIn", "name": "Marketing Strategy" },
-        { "issuer": "LinkedIn", "name": "Content and Creative Design" }
+        { "issuer": "LinkedIn", "name": "Marketing Insider Badge", "pdf": "/certifications/linkedin-marketing-insider.pdf" },
+        { "issuer": "LinkedIn", "name": "Marketing Strategy", "pdf": "/certifications/linkedin-marketing-strategy.pdf" },
+        { "issuer": "LinkedIn", "name": "Content and Creative Design", "pdf": "/certifications/linkedin-content-creative.pdf" }
       ]
     },
     {
       "year": "2024",
       "certs": [
-        { "issuer": "LinkedIn", "name": "Introduction to Social Media Marketing" }
+        { "issuer": "LinkedIn", "name": "Introduction to Social Media Marketing", "pdf": "/certifications/linkedin-social-media.pdf" }
       ]
     },
     {
       "year": "2023",
       "certs": [
-        { "issuer": "Google / Coursera", "name": "Foundations of Project Management" },
-        { "issuer": "Google / Coursera", "name": "Agile Project Management" },
-        { "issuer": "Google / Coursera", "name": "Project Initiation" },
-        { "issuer": "Google / Coursera", "name": "Project Planning" },
-        { "issuer": "Google / Coursera", "name": "Running the Project" },
-        { "issuer": "Google / Coursera", "name": "Applying PM in the Real World" },
-        { "issuer": "Google", "name": "Google Analytics (GA4, GTM, GA360)" },
-        { "issuer": "Asana", "name": "Asana" },
-        { "issuer": "Google", "name": "Google Digital Training" },
-        { "issuer": "Canva", "name": "Canva" },
-        { "issuer": "Figma", "name": "Figma" }
+        { "issuer": "Google / Coursera", "name": "Foundations of Project Management", "pdf": "/certifications/google-pm-foundations.pdf" },
+        { "issuer": "Google / Coursera", "name": "Agile Project Management", "pdf": "/certifications/google-pm-agile.pdf" },
+        { "issuer": "Google / Coursera", "name": "Project Initiation", "pdf": "/certifications/google-pm-initiation.pdf" },
+        { "issuer": "Google / Coursera", "name": "Project Planning", "pdf": "/certifications/google-pm-planning.pdf" },
+        { "issuer": "Google / Coursera", "name": "Running the Project", "pdf": "/certifications/google-pm-running.pdf" },
+        { "issuer": "Google / Coursera", "name": "Applying PM in the Real World", "pdf": "/certifications/google-pm-real-world.pdf" },
+        { "issuer": "Google", "name": "Google Analytics (GA4, GTM, GA360)", "pdf": "/certifications/google-analytics.pdf" },
+        { "issuer": "Asana", "name": "Asana", "pdf": "/certifications/asana.pdf" },
+        { "issuer": "Google", "name": "Google Digital Training", "pdf": "/certifications/google-digital-training.pdf" },
+        { "issuer": "Canva", "name": "Canva", "pdf": "/certifications/canva.pdf" },
+        { "issuer": "Figma", "name": "Figma", "pdf": "/certifications/figma.pdf" }
       ]
     },
     {
       "year": "2022",
       "certs": [
-        { "issuer": "LinkedIn", "name": "Social Media Marketing: Strategy and Optimization" },
-        { "issuer": "LinkedIn", "name": "Content Creation: Strategy and Tools" },
-        { "issuer": "Microsoft", "name": "Excel — VLOOKUP and XLOOKUP" },
+        { "issuer": "LinkedIn", "name": "Social Media Marketing: Strategy and Optimization", "pdf": "/certifications/linkedin-smm-strategy.pdf" },
+        { "issuer": "LinkedIn", "name": "Content Creation: Strategy and Tools", "pdf": "/certifications/linkedin-content-creation.pdf" },
         { "issuer": "Various", "name": "Sustainability Contest" }
       ]
     },
     {
       "year": "2021",
       "certs": [
-        { "issuer": "LVMH", "name": "LVMH Certification" }
+        { "issuer": "LVMH", "name": "LVMH Certification", "pdf": "/certifications/lvmh.pdf" }
       ]
     },
     {
       "year": "2019",
       "certs": [
-        { "issuer": "Oxford International", "name": "English Language — Student Progress Report" }
+        { "issuer": "Oxford International", "name": "English Language — Student Progress Report", "pdf": "/certifications/oxford-english.pdf" }
       ]
     }
   ]
