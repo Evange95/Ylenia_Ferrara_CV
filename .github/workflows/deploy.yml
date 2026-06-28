@@ -9,7 +9,7 @@ jobs:
   build-deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       # ── Build LaTeX PDFs ──────────────────────────────────────────────
       - name: Install TeX Live (XeLaTeX + fonts)
@@ -33,11 +33,11 @@ jobs:
           cp latex/cv_it.pdf website/public/cv_it.pdf
 
       # ── Build Astro site ──────────────────────────────────────────────
-      - uses: pnpm/action-setup@v4
+      - uses: pnpm/action-setup@v5
         with:
           version: 10
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v5
         with:
           node-version: 22
           cache: pnpm
