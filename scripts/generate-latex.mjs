@@ -88,7 +88,12 @@ for (const lang of ['en', 'it']) {
       ? group.category.replace('Project Management', 'Project Mgmt').replace('Tools & Platforms', 'IT').replace('Strumenti', 'IT')
       : group.category;
     const skillList = group.skills
-      .map(s => s.replace(' — ', ' (').replace('Native', 'native)').replace('Madrelingua', 'madrelingua)'))
+      .map(s => {
+        const [name, level] = s.split(' — ');
+        if (!level) return name;
+        const lvl = level === 'Native' ? 'native' : level === 'Madrelingua' ? 'madrelingua' : level;
+        return `${name} (${lvl})`;
+      })
       .join(', ');
     skLines.push('', '\\cvskill');
     skLines.push(`{${esc(cat)}} % Category`);
